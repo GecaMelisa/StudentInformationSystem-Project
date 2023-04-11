@@ -11,17 +11,17 @@
     public function __construct(){
         $servername = "localhost";
         $username= "root";
-        $password = "mina50";
+        $password = "root";
         $schema = "mydb";
 
 try{
     $this->conn = new PDO ("mysql:host=$servername;dbname=$schema",$username, $password);
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
-    $stmt =$this->conn->prepare("SELECT * FROM students"); //stmt ide da nam da podatke iz baze, u ovom slucaju sve o studentima
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    print_r($result);
+    //$stmt =$this->conn->prepare("SELECT * FROM students"); //stmt ide da nam da podatke iz baze, u ovom slucaju sve o studentima
+    //$stmt->execute();
+    //$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($result);
 }catch (PDOException $e){
     echo "Connection failed " . $e->getMessage();
 }
