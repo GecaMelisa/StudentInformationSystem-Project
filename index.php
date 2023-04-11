@@ -16,7 +16,7 @@ Flight::route('GET /api/students', function(){
 
 
 Flight::route('/', function(){
-    echo 'hello world!';
+    echo 'hello world!22';
   });
   
   Flight::start();
