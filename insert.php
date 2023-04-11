@@ -1,11 +1,14 @@
 <?php
 
 require_once("rest/dao/StudentsDao.class.php");
-$student_dao= new StudentsDao();
-$firstName=$_REQUEST['firstName'];
-$lastName=$_REQUEST['lastName'];
-$age=$_REQUEST['age'];
-$results=$student_dao->add($firstName, $lastName, $age);
+$student_dao = new StudentsDao();
+
+$firstName = $_REQUEST['firstName'];
+$lastName = $_REQUEST['lastName']; 
+$dateOfBirth = $_REQUEST['dateOfBirth']; 
+$email = $_REQUEST['email']; 
+
+$result = $student_dao->add($firstName, $lastName, $dateOfBirth, $email);
 print_r($results);
 
 /**$servername = "localhost";

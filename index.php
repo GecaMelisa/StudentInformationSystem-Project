@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS, PATCH');
 require 'vendor/autoload.php';
 
-Flight::register('db', 'PDO', array('mysql:host=localhost;dbname=studentinformationsystem','root',''));
+Flight::register('db', 'PDO', array('mysql:host=localhost;dbname=mydb','root','mina50'));
 
 Flight::route('GET /api/students', function(){
    $students = Flight::db()->query('SELECT * FROM Students', PDO::FETCH_ASSOC)->fetchAll();
@@ -12,7 +12,7 @@ Flight::route('GET /api/students', function(){
    });
 
 
-require 'vendor/autoload.php';
+
 
 Flight::route('/', function(){
     echo 'hello world!';

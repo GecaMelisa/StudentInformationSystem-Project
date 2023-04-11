@@ -7,8 +7,8 @@ $results=$student_dao->get_all();
 print_r($results);
 /**$servername = "localhost";
 $username= "root";
-$password = "mina50";
-$schema = "student_information_system";
+$password = "";
+$schema = "mydb";
 
 try{
     $conn = new PDO ("mysql:host=$servername;dbname=$schema",$username, $password);
