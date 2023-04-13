@@ -61,8 +61,7 @@ class BaseDao{
      * Method used to add entity to db
      * updated method which work for any number of columns
      */
-
-     public function add($entity){
+    public function add($entity){
         $query = "INSERT INTO " . $this->table_name . " (";
         foreach($entity as $column => $value){
             $query.=$column . ', ';

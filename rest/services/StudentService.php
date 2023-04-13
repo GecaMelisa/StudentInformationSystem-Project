@@ -8,11 +8,10 @@ class StudentService extends BaseService{
        parent::__construct(new StudentsDao);
     }
 
-    public function add($entity){
-        parent::add($entity);
+    //public function add($entity){
+        //parent::add($entity);
         //send an email
        
-    }
 }
 
 ?>
