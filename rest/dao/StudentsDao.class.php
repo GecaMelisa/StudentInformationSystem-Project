@@ -79,10 +79,7 @@ try{
         $stmt->execute();
      
     }
-
 }
-
-
 
   ?>
 
