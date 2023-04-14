@@ -9,9 +9,5 @@ require_once "BaseDao.class.php";
     }
 }
 
-<<<<<<< HEAD
-?>
-=======
   ?>
->>>>>>> ae3e31c (meli)
 
