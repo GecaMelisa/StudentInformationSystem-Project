@@ -2,7 +2,7 @@
 
 /*/ get_all
   /*/
-  Flight:: route('GET /students/', function(){ 
+  Flight:: route('GET /students', function(){ 
     //echo "Hello from /students route";
     //$= new StudentsDao(); //create a object
     //$results = Flight::()->get_all(); //using registred class
