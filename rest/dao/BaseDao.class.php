@@ -69,12 +69,12 @@ class BaseDao{
           $query.= $column . ' , ';
       }
       $query = substr($query, 0, -2);
-      $query.= ") VALUES ( ";
+      $query.= ") VALUES (";
       foreach($entity as $column => $value){
           $query.= ":" . $column . ', ';
       }
       $query = substr($query, 0, -2);
-      $query.= " )";
+      $query.= ")";
       
       $stmt = $this->conn->prepare($query);
       $stmt->execute($entity);//everything from the request is in this path here
