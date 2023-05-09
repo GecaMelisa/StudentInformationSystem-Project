@@ -1,6 +1,6 @@
 <?php
 require_once "BaseDao.class.php";
-class CourseDao extends BaseDao{  //EXTENDS to add inheritance
+class CoursesDao extends BaseDao{  //EXTENDS to add inheritance
 
 
     public function __construct(){
