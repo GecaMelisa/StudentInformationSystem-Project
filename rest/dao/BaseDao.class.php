@@ -54,7 +54,7 @@ class BaseDao{
     */
       public function delete($id){
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table_name . "WHERE id= :id");
-        $stmt->bindParam(':id', $id);   //prevent SQL injection, we have this so when we put OR 1=1 not everything will be deleted. Security is better.
+        $stmt->bindParam(':id', $id);   // SQL injection, prevention, we have this so when we put OR 1=1 not everything will be deleted. Security is better.
         $stmt->execute();
      
     }
