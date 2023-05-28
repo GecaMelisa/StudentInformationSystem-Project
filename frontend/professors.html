@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Professors - Student Information System</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Student Information System</a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
+            
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>  <!--Opening and closing side bar menue, hamburger menue-->  
+            
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"> <!-- ms my horizontalna i vertikalna osa styling-->
+                <div class="input-group"> 
+                    
+                </div>
+            </form>
+
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4"> <!--creates an unordered list element with a class of "navbar-nav" and several other classes.-->
+               <li class="nav-item dropdown"> <!-- a list item element with a class of "nav-item" and "dropdown"-->
+                <a class="nav-link"> <!--href="register.html">-->
+                    <i class="fas fa-user"></i> <!--ikonica--> 
+                  </a>
+                </li>
+            </ul>
+        </nav>
+
+       <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+              <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">  <!--navigation element with a class of "sb-sidenav", "accordion", and "sb-sidenav-dark" -->
+                <div class="sb-sidenav-menu">
+                  <div class="nav"> 
+
+                    <a class="nav-link" href="#"><!--hyperlink referenca-->
+                        <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                        Dashboard
+                    </a>
+
+                    <a class="nav-link" href="#"><!--hyperlink referenca-->
+                      <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                      Courses and Grades
+                    </a>
+
+                    <a class="nav-link" href="#"> 
+                      <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                      Professors
+                    </a>
+
+                    <a class="nav-link" href="#">
+                      <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                      Attendance
+                    </a>
+
+                    <a class="nav-link" href="#">
+                      <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
+                      Information about University
+                    </a>
+
+                    <a class="nav-link" href="#">
+                      <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                      Logout
+                    </a>
+
+                  </div>
+                </div>
+                
+              </nav>
+              </div>
+
+              <title>Attendance</title>
+</html>
