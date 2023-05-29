@@ -23,4 +23,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    $('.collapse').collapse()
+    
+
 });

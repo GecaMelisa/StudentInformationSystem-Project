@@ -6,19 +6,19 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
     </head>
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Student Information System</a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
+            <a class="navbar-brand ps-2" href="index.html"><h6>Student Information System</h6></a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
             
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>  <!--Opening and closing side bar menue, hamburger menue-->  
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-lg-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>  <!--Opening and closing side bar menue, hamburger menue-->  
             
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"> <!-- ms my horizontalna i vertikalna osa styling-->
                 <div class="input-group"> 
-                    
                 </div>
             </form>
 
@@ -74,71 +74,86 @@
               </nav>
               </div>
 
-              <title>Courses&Grades</title>
-              <style>
-              table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            th, td {
-                    border: 1px solid black;
-                    padding: 8px;
-                    text-align: left;
-                    }
-            th {
-                background-color: #f2f2f2;
-                }
-                .hidden {
-                    display: none;
-                }
-            </style>
-            <script>
-            function toggleTable(tableId) {
-                var table = document.getElementById(tableId);
-                if (table.style.display === "none") {
-                    table.style.display = "table";
-                    } else {
-                        table.style.display = "none";
-                            }
-             }
-            </script>
-            </head>
-            <div id="layoutSidenav_content">
+              <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
+                      <h2 class="mt-4">Courses&Grades</h2>
+
+                      <ol class="breadcrumb mb-50">
+                      </ol> 
+
+                        <div id="accordion">
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  IT 204 Operating Systems (5.0 ECTS)              Final: N/A (16 points)
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                Grades:
+                              </div>
+                            </div>
+                          </div>
+                          <ol class="breadcrumb mb-4">
+                          </ol> 
+
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  IT 207 Introduction to Web Programming (5.0 ECTS)                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                Grades:
+                              </div>
+                            </div>
+                          </div>
+                          <ol class="breadcrumb mb-4">
+                          </ol> 
+
+
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  IT 206 Introduction to Mobile Programming (5.0 ECTS)                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                Grades:
+                              </div>
+                            </div>
+                          </div>
+                          <ol class="breadcrumb mb-4">
+                          </ol> 
+
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  FENMS 034 Data Structures and Algorithms (5.0 ECTS)                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body">
+                                Grades:
+                              </div>
+                            </div>
+                          </div>
+                          <ol class="breadcrumb mb-4">
+                          </ol> 
+                        </div>
+                        </html>
+                          
                         
-                        <h1>Courses & Grades</h1>
-                        <h2>Academic Year: 2022/2023</h2>
-                        <h3>Semester: Spring</h3>
 
-                <table>
-    
-                <tr onclick="toggleTable('web-programming-table')">
-                <td>IT 207 Introduction to Web Programming (5.0 ECTS)</td>
-      
-                 </tr>
-                <tr id="web-programming-table" class="hidden">
-                <td colspan="2">
-
-                <table>
-                <tr>
-                <th>Test</th>
-                <th>Weight</th>
-                <th>Result</th>
-                </tr>
-
-                <tr>
-                <td>Midterm Exam</td>
-                <td>30%</td>
-                <td>50% of 30%</td>
-                </tr>
-          <!-- Add more tests and results here -->
-        </table>
-      </td>
-    </tr>
-    <!-- Add more subjects and their tables here -->
-  </table>
-</body>
-</html>
 
               
+             
+                
