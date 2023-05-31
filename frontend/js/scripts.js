@@ -9,6 +9,8 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
+  
+
     // Toggle the side navigation
     const sidebarToggle = document.body.querySelector('#sidebarToggle');   //hamburger menue
     if (sidebarToggle) {
@@ -21,9 +23,10 @@ window.addEventListener('DOMContentLoaded', event => {
             document.body.classList.toggle('sb-sidenav-toggled');
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
+        
     }
 
-    $('.collapse').collapse()
+    
     
 
 });

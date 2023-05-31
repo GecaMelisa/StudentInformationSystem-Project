@@ -4,13 +4,19 @@
         <title>Attendance - Student Information System</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/attendance.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
+
+    
+
+       
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-2" href="index.html"><h6>Student Information System</h6></a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
+            <a class="navbar-brand ps-2" href="#"><h6>Student Information System</h6></a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
             
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>  <!--Opening and closing side bar menue, hamburger menue-->  
@@ -38,32 +44,32 @@
                 <div class="sb-sidenav-menu">
                   <div class="nav"> 
 
-                    <a class="nav-link" href="#"><!--hyperlink referenca-->
+                    <a class="nav-link" href="dashboard.html"><!--hyperlink referenca-->
                         <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
                         Dashboard
                     </a>
 
-                    <a class="nav-link" href="#"><!--hyperlink referenca-->
+                    <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
                       <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
                       Courses and Grades
                     </a>
 
-                    <a class="nav-link" href="#"> 
+                    <a class="nav-link" href="professors.html"> 
                       <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                       Professors
                     </a>
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="attendance.html">
                       <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                       Attendance
                     </a>
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="university.html">
                       <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
                       Information about University
                     </a>
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="login.html">
                       <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                       Logout
                     </a>
@@ -88,7 +94,7 @@
                     text-align: left;
                     }
             th {
-                background-color: #f2f2f2;
+                background-color: hwb(0 95% 5%);
                 }
                 .hidden {
                     display: none;
@@ -101,6 +107,7 @@
                     table.style.display = "table";
                     } else {
                         table.style.display = "none";
+                        table.classList.add("show")
                             }
              }
             </script>
@@ -108,13 +115,22 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        
-                        <h1>Attendance</h1>
-                        <h2>Academic Year: 2022/2023</h2>
-                        <h3>Semester: Spring</h3>
+
+                        <h2>Attendance</h2>
+
+                        <div class="container">
+                          <h5 class="title">Academic Year</h5>
+                          <h5 class="title">Semester</h5>
+                        </div>
+                       
+                       
+                        <nav class="nav nav-pills  justify-content-start">
+                          <a class="nav-item nav-link" href="#">2021/2022</a>
+                          <a class="nav-item nav-link active" href="#">2022/2023</a>
+                        </nav>
 
                         <section class="intro">
-                            <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="bg-image h-100" style="background-color: #ffffff;">
                               <div class="mask d-flex align-items-center h-100">
                                 <div class="container">
                                   <div class="row justify-content-center">
@@ -123,7 +139,7 @@
                                         <div class="card-body p-0">
                                           <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
                                             <table class="table table-striped mb-0">
-                                              <thead style="background-color: #91be74;">
+                                              <thead style="background-color: #e4e419;">
                                                 <tr>
                                                   <th scope="col">Course Name</th>
                                                   <th scope="col">Lab Attendance</th>
@@ -132,6 +148,8 @@
                                                 </tr>
                                               </thead>
                                               <tbody>
+
+
                                                 <tr>
                                                   <td>Intorduction to Web Programming</td>
                                                   <td>
@@ -155,11 +173,25 @@
                                             
 
                                                 <tr>
-                                                    <td>Data Structures</td>
+                                                    <td> <button class="btn btn-link" id="data-structure-button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                      Exam                               </button></td>
                                                     <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-custom" role="progressbar" style="width: 85%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">85%</div>
+                                                          <div class="card">
+                                                            <div class="card-header" id="headingOne">
+                                                              <h5 class="mb-0">
+                                                               
+                                                              </h5>
+                                                            </div>
+                                                            
+                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                              <div class="card-body">
+                                                                Grades:
+                                                              </div>
+                                                            </div>
                                                           </div>
+
+
+
                                                   </td>
                                                   <td>
                                                     <div class="progress">
@@ -260,6 +292,11 @@
                                 </div>
                               </div>
                             </div>
+
+                            <script src="../frontend/js/jquery-3.6.4.js"></script>
+                            <script src="../frontend/js/jquery-3.6.4.min.js"></script>
+                            <script defer src="../frontend/js/jquery.js"></script>
+                            <script src="../frontend/js/attendance.js"></script>
                           </section>
 
              

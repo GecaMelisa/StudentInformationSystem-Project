@@ -1,6 +1,6 @@
 body{
 
-	background-color: #eee;
+	background-color: hsl(0, 0%, 100%);
 }
 
 
@@ -31,10 +31,21 @@ body{
 
 .bg-custom{
 
-	background-color: #b7dd29 !important;
+	background-color: #198754 !important;
 }
 
 .progress{
 
 	margin-top:10px;
 }
+
+
+.container {
+  display: flex;
+}
+
+.title {
+  flex: 1; /* Ravnomerno raspoređuje prostor između naslova */
+}
+
+
