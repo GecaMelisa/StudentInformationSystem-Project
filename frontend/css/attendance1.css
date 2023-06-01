@@ -1,0 +1,80 @@
+.container-fluid {
+    margin: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.container-fluid .head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: rgb(184, 184, 184) solid 2px;
+    padding: 20px;
+}
+
+.container-fluid .head .head-label {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color:rgb(17, 148, 185);
+    margin: 0;
+}
+
+.container-fluid .head svg {
+    width: 20px;
+    height: 20px;
+    color: rgb(17, 148, 185);
+}
+
+.container-fluid .attendance-body .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.container-fluid .attendance-body .form .picker {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(17, 148, 185);
+}
+
+.container-fluid .attendance-body .form .picker .pick-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-fluid .attendance-body .form .picker .pick-buttons .pick-button {
+    width: 50%;
+    border: rgb(215, 215, 215) solid 1px;
+    background-color: white;
+    color: rgb(156, 156, 156);
+    transition: 0.3s ease;
+    border-radius: 10px;
+}
+
+.container-fluid .attendance-body .form .picker .pick-buttons .pick-button:first-child {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.container-fluid .attendance-body .form .picker .pick-buttons .pick-button:last-child {
+    border-radius: 0px 10px 10px 0px;
+}
+
+.container-fluid .attendance-body .form .picker .pick-buttons .pick-button:hover {
+    background-color: rgb(127, 178, 184);
+    color: white;
+    transition: 0.3s ease;
+}
+
+.container-fluid .attendance-body .table{
+   margin: 40px 10px;
+
+}
+
