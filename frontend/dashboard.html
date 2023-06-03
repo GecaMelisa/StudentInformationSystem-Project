@@ -1,26 +1,31 @@
 <!DOCTYPE html>
- 
+<html>
     <head>
         <title>Dashboard - Student Information System</title>
-        <!--<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> plugin for table-->
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/dashboard.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+  
 
-    
+    </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-2" href="index.html"><h6>Student Information System</h6></a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
+            <a class="navbar-brand ps-2" href="#"><h6>Student Information System</h6></a> <!--Creates a hyperlink that acts as the brand name for the website and links to the homepage of the website.-->
+            
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"><i class="fas fa-bars"></i></button>  <!--Opening and closing side bar menue, hamburger menue-->  
+            
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"> <!--ms my horizontalna i vertikalna osa styling-->>
-                <div class="input-group">
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"> <!-- ms my horizontalna i vertikalna osa styling-->
+                <div class="input-group"> 
                     
                 </div>
             </form>
+
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4"> <!--creates an unordered list element with a class of "navbar-nav" and several other classes.-->
                <li class="nav-item dropdown"> <!-- a list item element with a class of "nav-item" and "dropdown"-->
@@ -30,15 +35,16 @@
                 </li>
             </ul>
         </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-              <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion"> <!-- navigation element with a class of "sb-sidenav", "accordion", and "sb-sidenav-dark"-->
-                <div class="sb-sidenav-menu">
-                  <div class="nav">
-                    <a class="nav-link" href="#">
 
-                      <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> <!-- icon of a tachometer using the Font Awesome library.-->
-                      Dashboard
+       <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+              <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">  <!--navigation element with a class of "sb-sidenav", "accordion", and "sb-sidenav-dark" -->
+                <div class="sb-sidenav-menu">
+                  <div class="nav"> 
+
+                    <a class="nav-link" href="dashboard.html"><!--hyperlink referenca-->
+                        <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                        Dashboard
                     </a>
 
                     <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
@@ -65,145 +71,64 @@
                       <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                       Logout
                     </a>
+
                   </div>
                 </div>
                 
               </nav>
             </div>
             
-
+              
+            </script>
+            </head>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h2 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <!--<li class="breadcrumb-item active">Dashboard</li>-->
-                        </ol> 
+                    <div class="container-fluid px-0">
+                        <div class= "head">
+                            <i class="fas fa-book"></i>
+                            <h3 class = "head-label">Dashboard</h3>
+                        </div>
 
-                        <title>Course Attendance and Points</title>
-                        <style>
-                        table {
-                             border-collapse: collapse;
-                              width: 100%;
-                             }
-                             
-                             th, td {
-                                text-align: left;
-                                padding: 8px;
-                            }
-                            
-                            th {
-                                background-color: #f2f2f2;
-                            }
-    
-                            tr:nth-child(even) {
-                                background-color: #dddddd;
-                            }
-                            .progress {
-                                height: 20px;
-                                background-color: #f2f2f2;
-                                border-radius: 4px;
-                                overflow: hidden;
-                            }
-    
-                            .progress-bar {
-                                 height: 100%;
-                                background-color: #4CAF50;
-                                width: 0%;
-                            }
+                        <div class="dashboard-body">
+                            <div class="table">
+                                <table class="table">
+                                <thead>
+                                <tr>
+                                  <th scope="col">Course Name</th>
+                                  <th scope="col">Attendance</th>
+                                  <th scope="col">Points</th>
+                                  
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <td>Introduction to Web Programming</td>
 
-                            </style>
+                                  <td>
+                                    <div class="progress">
+                                           <div class="progress-bar bg-custom" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65%</div>
+                                         </div>
+                                   <td>60</td>
 
-                            <body>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Course</th>
-                                            <th>Attendance</th>
-                                            <th>Points</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                               </td>
+                                  </tbody>
+                                  
+                                  <tbody>
+                                    <td>Data Structures</td>
+                                  </tbody>
 
-                                        <tr>
-                                            <td>Introcution to Web Programming</td>
-                                            <td>
-                                                 <div class="progress">
-                                                        <div class="progress-bar bg-custom" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65%</div>
-                                                      </div>
-                                                <td>60</td>
-                                            </td>
-                                        </tr>
+                                  <tbody>
+                                    <td>Calculus II</td>
+                                  </tbody>
 
-                                        <tr>
-                                            <td>Operating Systems</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-custom" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">65%</div>
-                                                  </div>
-                                              <td>85</td>
-                                        </tr>
+                                  <tbody>
+                                    <td>Introduction to Mobile Programming</td>
+                                  </tbody>
 
-                                        <tr>
-                                            <td>Data Structures</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-custom" role="progressbar" style="width: 81%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">81%</div>
-                                                  </div>
-                                            </td>
-                                            <td>75</td>  
-                                        </tr>
 
-                                        <tr>
-                                            <td>Human Computer Interaction</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-custom" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                                  </div>
-                                            </td>
-                                            <td>65</td>  
-                                        </tr>
-
-                                        <tr>
-                                            <td>Introduction to mobile Programming</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-custom" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
-                                                  </div>
-                                            </td>
-                                            <td>55</td>  
-                                        </tr>
-
-                                        <tr>
-                                            <td>Calculus II</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-custom" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                                  </div>
-                                            </td>
-                                            <td>25</td>  
-                                        </tr>
-
-                            </tbody>
-                            </table>
-
-                            <footer class="py-4 bg-light mt-auto">
-                                <div class="container-fluid px-4">
-                                    <div class="d-flex align-items-center justify-content-between small">
-                                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                                        <div>
-                                            <a href="#">Privacy Policy</a>
-                                            &middot;
-                                            <a href="#">Terms &amp; Conditions</a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </footer>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-
-               
+                </main>
             </div>
-
-            </html>
