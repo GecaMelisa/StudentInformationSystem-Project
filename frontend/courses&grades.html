@@ -25,14 +25,18 @@
                 </div>
             </form>
 
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4"> <!--creates an unordered list element with a class of "navbar-nav" and several other classes.-->
-               <li class="nav-item dropdown"> <!-- a list item element with a class of "nav-item" and "dropdown"-->
-                <a class="nav-link"> <!--href="register.html">-->
-                    <i class="fas fa-user"></i> <!--ikonica--> 
-                  </a>
-                </li>
-            </ul>
+                     <!-- Navbar-->
+
+                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user fa-fw"></i></a>
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="#!">My Profile</a></li>
+                              
+                          </ul>
+                      </li>
+                  </ul>
         </nav>
 
        <div id="layoutSidenav">
@@ -49,11 +53,6 @@
                     <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
                       <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
                       Courses and Grades
-                    </a>
-
-                    <a class="nav-link" href="professors.html"> 
-                      <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                      Professors
                     </a>
 
                     <a class="nav-link" href="attendance1.html">
@@ -156,7 +155,17 @@
                           <ol class="breadcrumb mb-4">
                           </ol> 
                         </div>
-                        </html>
+                    </div>
+                
+                </div>
+       </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+            <script src="js/datatables-simple-demo.js"></script>
+      </body>
+</html>
                           
                         
 

@@ -26,3 +26,9 @@
     height: 20px;
     color: rgb(17, 148, 185);
 }
+
+.container-fluid .head .university-body .form .location .loc{
+    border-radius: 0px 10px 10px 0px;
+    background-color: blue;
+    padding-left: 10px;
+}
