@@ -73,13 +73,17 @@
     transition: 0.3s ease;
 }
 
-.container-fluid .attendance-body .table{
+.container-fluid .attendance-body .table {
     margin: 50px 10px;
+    background-color: aliceblue;
 }
 
-.container-fluid .attendance-body .table {
-    background-color: blue;
+.container-fluid .attendance-body .table:hover{
+    background-color:rgb(127, 178, 184); 
+    color: white;
+    transition: 0.3s ease;
 }
+
 
 
 

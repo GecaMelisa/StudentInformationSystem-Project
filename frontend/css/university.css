@@ -27,7 +27,7 @@
     color: rgb(17, 148, 185);
 }
 
-.container-fluid .head .university-body .form .location .loc{
+.container-fluid .head .university-body .form .location {
     border-radius: 0px 10px 10px 0px;
     background-color: blue;
     padding-left: 10px;
