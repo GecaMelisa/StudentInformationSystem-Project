@@ -28,11 +28,17 @@
     color: rgb(17, 148, 185);
 }
 
-.container-fluid .university-body .card {
-   
-    margin: 65px 65px;
-   
+.navbar-nav .nav-link i.fa-user.fa-fw {
+    color: white;
+  }
+  
+.navbar-nav .nav-linkk i.fas fa-sign.out-alt {
+    color: black;
+}
+  
 
+.container-fluid .university-body .card {
+    margin: 65px 65px;
 }
 
 .university-body .card-title {

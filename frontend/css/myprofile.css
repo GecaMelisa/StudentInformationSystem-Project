@@ -1,0 +1,64 @@
+.container-fluid {
+    margin: 50px;
+    width: auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.container-fluid .head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: rgb(184, 184, 184) solid 2px;
+    padding: 20px;
+}
+
+.container-fluid .head .head-label {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color:rgb(17, 148, 185);
+    margin: 0;
+}
+
+.container-fluid .head svg {
+    width: 20px;
+    height: 20px;
+    color: rgb(17, 148, 185);
+}
+
+.student-profile {
+    display: flex;
+  }
+  
+.student-image {
+    padding-left: 20px;
+    padding-top: 65px;
+  }
+  
+.student-info {
+    padding-left: 30px;
+  }
+  
+.student-info h2 {
+    margin: 0;
+  }
+  
+.info-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+.info-item i {
+    margin-right: 10px;
+  }
+  
+.info-item span {
+    color: blue;
+  }
+  
+.info-item strong {
+    font-weight: bold;
+  }
+  
