@@ -31,13 +31,26 @@
     display: flex;
   }
   
+
+
 .student-image {
-    padding-left: 20px;
-    padding-top: 65px;
-  }
-  
+  float: left;
+  width: 35%; 
+  padding-left: 100px;
+  padding-top: 30px;
+  padding-block: 30;
+ 
+}
+
+.student-image img {
+  width: 100%; 
+  height: auto; /* Automatsko prilagođavanje visine proporcionalno širini */
+}
+
 .student-info {
-    padding-left: 30px;
+    padding-left: 150px;
+    padding-top: 30px;
+    color: rgb(17, 148, 185);
   }
   
 .student-info h2 {
@@ -47,7 +60,7 @@
 .info-item {
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 10px 0;
   }
   
 .info-item i {
@@ -55,7 +68,8 @@
   }
   
 .info-item span {
-    color: blue;
+    color: rgb(0, 0, 0);
+    
   }
   
 .info-item strong {

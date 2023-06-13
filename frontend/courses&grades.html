@@ -10,6 +10,10 @@
         <script src="../frontend/js/jquery-3.6.4.js"></script>
         <script src="../frontend/js/jquery-3.6.4.min.js"></script>
         <script defer src="../frontend/js/jquery.js"></script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body class="sb-nav-fixed">
@@ -34,7 +38,7 @@
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user fa-fw"></i></a>
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#!">My Profile</a></li>
+                              <li><a class="dropdown-item" href="myprofile.html">My Profile</a></li>
                               
                           </ul>
                       </li>
@@ -84,13 +88,91 @@
                       <div class="head">
                         <i class="fas fa-book"></i>
                         <h3 class="head-label">Courses&Grades</h3>
+
                     </div>
 
                     <div class="courses-body">
+                      <ol class="breadcrumb mb-4"></ol>
+                  
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                              aria-controls="collapseOne" id="course-1">
+                              IT 204 Operating Systems (5.0 ECTS) Final: N/A (16 points)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Grades:
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <ol class="breadcrumb mb-4"></ol>
+                  
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                              aria-controls="collapseTwo" id="course-2">
+                              IT 207 Introduction to Web Programming (5.0 ECTS)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                          <div class="card-body">
+                            Grades:
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <ol class="breadcrumb mb-4"></ol>
+                  
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                              aria-controls="collapseThree">
+                              IT 206 Introduction to Mobile Programming (5.0 ECTS)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                          <div class="card-body">
+                            Grades:
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <ol class="breadcrumb mb-4"></ol>
+                  
+                      <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true"
+                              aria-controls="collapseFour">
+                              FENMS 034 Data Structures and Algorithms (5.0 ECTS)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                          <div class="card-body">
+                            Grades:
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <ol class="breadcrumb mb-4"></ol>
+                    </div>
+
+                   
+                 <!--  <div class="courses-body">
                       <ol class="breadcrumb mb-4">
                       </ol> 
 
-                       <!-- <div id="accordion">-->
+                       
                           <div class="card">
                             <div class="card-header"  id="headingOne">
                               <h5 class="mb-0">
@@ -164,6 +246,8 @@
                         </div>
                     </div>
                     </div>
+
+                  -->
                   
 
 
@@ -176,6 +260,9 @@
             <script src="js/scripts.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
             <script src="js/datatables-simple-demo.js"></script>
+            <script src="script.js"></script>
+            <script src="../js/courses&grades.js"></script>
+
       </body>
 </html>
                           
