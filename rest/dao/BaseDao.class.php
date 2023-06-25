@@ -33,7 +33,7 @@ class BaseDao{
  */
 
     public function get_all(){
-      $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name);
+      $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name); //concatination .
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -43,7 +43,7 @@ class BaseDao{
   * Method used to get entity by id from db
   */
   public function get_by_id($id) {
-     $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id=:id");
+     $stmt = $this->conn->prepare("SELECT * FROM " . $this->table_name . " WHERE id=:id"); //space atfer FROM and before WHERE
      $stmt->execute(['id' => $id]);
      return $stmt->fetchAll();
 }
@@ -53,7 +53,7 @@ class BaseDao{
     * Method used to delete entity from database
     */
       public function delete($id){
-        $stmt = $this->conn->prepare("DELETE FROM " . $this->table_name . "WHERE id= :id");
+        $stmt = $this->conn->prepare("DELETE FROM " . $this->table_name . " WHERE id= :id");
         $stmt->bindParam(':id', $id);   // SQL injection, prevention, we have this so when we put OR 1=1 not everything will be deleted. Security is better.
         $stmt->execute();
      
@@ -65,19 +65,19 @@ class BaseDao{
      */
     public function add($entity){
       $query = "INSERT INTO " . $this->table_name . " (";
-      foreach($entity as $column => $value){
-          $query.= $column . ' , ';
+      foreach($entity as $column => $value){      //iterate over entity array
+          $query .= $column . ' , '; //concatinate 
       }
       $query = substr($query, 0, -2);
-      $query.= ") VALUES (";
+      $query .= ") VALUES (" ;
       foreach($entity as $column => $value){
-          $query.= ":" . $column . ', ';
+          $query .= ":" . $column . ', ';
       }
-      $query = substr($query, 0, -2);
-      $query.= ")";
-      
+      $query = substr($query, 0, -2); //to remove space and comma
+      $query .= ")"; //close first par.
+
       $stmt = $this->conn->prepare($query);
-      $stmt->execute($entity);//everything from the request is in this path here
+      $stmt->execute($entity); 
       $entity['id'] = $this->conn->lastInsertId(); //method which will return us the id of the last inserted record 
       return $entity;
   }
@@ -88,20 +88,19 @@ class BaseDao{
      * Method used to update entity to db
      * updated method which work for any number of columns
      */
-     public function update($entity, $id, $id_column = "id") { //this $id_column je zapravo default id koji ne moramo da pišemo kada update po id
-        $query = "UPDATE " . $this->table_name . " SET ";
+     public function update($entity, $id, $id_column = "id") { //this $id_column je zapravo default id koji ne moramo da pišemo kada update po id; ako update po statusu, stavimo $status = active  i $id_column = "status";
+        $query = " UPDATE " . $this->table_name . " SET ";
         foreach($entity as $column => $value){
-            $query.= $column . '=: ' . $column . ", ";
+          $query .= $column . '=:' . $column . ", ";
         }
         $query = substr($query, 0, -2);
-        $query.="WHERE ${id_column} = :id";
+        $query .= " WHERE ${id_column} = :id";
         $stmt = $this->conn->prepare($query);
         $entity['id'] = $id; 
         $stmt->execute($entity);
         return $entity;
     
-         }
+     }
 }
-
 
 ?>

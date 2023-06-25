@@ -34,7 +34,7 @@
 
   Flight:: route('POST /student', function(){ 
     //echo "Hello from /students route";
-    //$= new StudentsDao(); //create a object
+    
     $request = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
     //dodali smo ->data tako da extract  data part; request data
     //print_r($request); samo za testiranje
@@ -50,8 +50,6 @@
   /*/
 
   Flight:: route('PUT /student/@id', function($id){ 
-    //echo "Hello from /students route";
-   // $= new StudentsDao();
     $student = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
     //$response = $->update($student, $id);  //we need to provide add
     Flight::json(['message' => "Student edit successfully", 'data' => Flight::student_service()->update($student, $id)]); 
@@ -63,8 +61,6 @@
   /*/
 
   Flight:: route('DELETE /students/@id', function($id){ 
-    //echo "Hello from /students route";
-    //$= new StudentsDao(); //create a object
     Flight::student_service()->delete($id); //ne treba nam result ovdje
     //print_r($results);
     Flight::json(['message' => "Student deleted successfully"]); //nemamo result, zato kreiramo array koji će biti zapravo poruka da smo uspješno izbrisali studenta
