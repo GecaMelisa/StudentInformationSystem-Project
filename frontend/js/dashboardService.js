@@ -1,38 +1,28 @@
 let dashboardService = {
     init: function() {
-
-        function getGrade(id) {
-            $.ajax({
-                url: "http://localhost/StudentInformationSystem/rest/studentgrades/2/" + id,
-                type: "GET",
-                success: function(data) {
-                    $(`#course_grade_${id}`).html(data[0]["grade"])
-                }
-            })
-        }
-
         $.ajax({
             url: "http://localhost/StudentInformationSystem/rest/studentcourses/2",
             type: "GET",
             success: function (data) {
+                console.log(data)
               for(course of data) {
                 $(".datatable").append(`
-                    <tbody>
-                    <td>${course.name}</td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar bg-custom" role="progressbar" style="width: ${course.attendance}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${course.attendance}</div>
-                            </div>
-                        <td id="course_grade_${course.id}"></td>
-                        </td>
-                    </tbody>
-                `)
-                getGrade(course.id)
+                <tbody>
+                <td>${course.name}</td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-custom" role="progressbar" style="width: 65%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
+                        </div>
+                    <td>60</td>
+                    </td>
+                 </tbody>
+              `)
               }
             },
             error: function (data) {
               console.log("drama")
             },
-        });
+          });
+          
     }
 }
