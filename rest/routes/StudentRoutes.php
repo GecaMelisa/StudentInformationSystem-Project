@@ -83,6 +83,13 @@
     Flight::json($courses);
 });
 
+  /*
+  get grades for student by student id and course id
+  */
+  Flight::route('GET /studentgrades/@stu_id/@cour_id', function($id, $id2){
+    $grades= Flight::student_service()->getGradesByStudentandCourse($id, $id2);
+    Flight::json($grades);
+});
 
 
 ?>

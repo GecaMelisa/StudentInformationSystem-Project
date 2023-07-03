@@ -4764,6 +4764,7 @@ textarea.form-control-lg {
   font-size: var(--bs-progress-font-size);
   background-color: var(--bs-progress-bg);
   border-radius: var(--bs-progress-border-radius);
+  
 }
 
 .progress-bar {
@@ -4776,6 +4777,7 @@ textarea.form-control-lg {
   white-space: nowrap;
   background-color: var(--bs-progress-bar-bg);
   transition: var(--bs-progress-bar-transition);
+  
 }
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
