@@ -75,6 +75,15 @@
     echo "Hello from /students route with name = ".$name . "and status = " .$status; 
   });
 
+  /*
+  get courses for student by student id
+  */
+  Flight::route('GET /studentcourses/@id', function($id){
+    $courses = Flight::student_service()->getCoursesByStudentId($id);
+    Flight::json($courses);
+});
+
 
 
 ?>
+
