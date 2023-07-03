@@ -18,7 +18,7 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 // middleware method for login
-Flight::route('/*', function(){
+/*Flight::route('/*', function(){
     //perform JWT decode
     $path = Flight::request()->url;
     if ($path == '/login' || $path == '/docs.json') return TRUE; // exclude login route from middleware
@@ -39,6 +39,7 @@ Flight::route('/*', function(){
     }
   });
 
+  */
 
 
 

@@ -24,6 +24,10 @@ class StudentService extends BaseService{
     public function getCoursesByStudentId($studentId){
         return $this->dao->getCoursesByStudentId($studentId);
     }
+
+    public function getAttendance($studentId){
+        return $this->dao->getAttendance($studentId);
+    }
     
 
 }

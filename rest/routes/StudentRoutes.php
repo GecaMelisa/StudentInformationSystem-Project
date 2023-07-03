@@ -1,7 +1,7 @@
 <?php
 
-/*/ get_all
-  /*/
+// get_all
+  //
   Flight:: route('GET /students', function(){ 
     //echo "Hello from /students route";
     //$= new StudentsDao(); //create a object
@@ -29,8 +29,8 @@
   });
 
 
-  /*/ post method
-  /*/
+  // post method
+  //
 
   Flight:: route('POST /student', function(){ 
     //echo "Hello from /students route";
@@ -46,8 +46,8 @@
 
   });
 
-/*/ update method
-  /*/
+// update method
+  //
 
   Flight:: route('PUT /student/@id', function($id){ 
     $student = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
@@ -57,8 +57,8 @@
   });
 
 
-  /*/ Delete by id
-  /*/
+  // Delete by id
+  //
 
   Flight:: route('DELETE /students/@id', function($id){ 
     Flight::student_service()->delete($id); //ne treba nam result ovdje
@@ -83,7 +83,13 @@
     Flight::json($courses);
 });
 
+/*
+get attendance for student by student id
+*/
+Flight::route('GET /studentattendance/@id', function($id){
+  $courses = Flight::student_service()->getAttendance($id);
+  Flight::json($courses);
+});
 
 
 ?>
-
