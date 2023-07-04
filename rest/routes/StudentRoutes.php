@@ -91,5 +91,13 @@
     Flight::json($grades);
 });
 
+/*
+get information about student
+*/
+Flight::route('GET /studentInfo/@id', function($id){
+  $courses = Flight::student_service()->getStudentInfo($id);
+  Flight::json($courses);
+});
+
 
 ?>

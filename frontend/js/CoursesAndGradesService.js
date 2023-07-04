@@ -1,7 +1,7 @@
-let dashboardService = {
+var CoursesAndGradesService = {
     init: function() {
 
-        function getGrade(id){
+        list: function getGrade(id){
             $.ajax(
                 {
                     url: "../rest/studentgrades/2/" +id,
@@ -17,17 +17,21 @@ let dashboardService = {
             type: "GET",
             success: function (data) {
               for(course of data) {
-                $(".datatable").append(`
+                $(".course").append(`
                 <tbody>
-                <td>${course.name}</td>
-                    <td>
-                        <div class="progress">
-                            <div class="progress-bar bg-custom" role="progressbar" style="width: ${course.attendance}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${course.attendance}</div>
-                        </div>
-                    <td id="course_grade_${course.id}"></td>
+                <tr>
+                    <td>${course.name}</td>
+                </tr>
+                <tr>
+                    <td class="card-body">
+                        Grade:
+                        <span id="course_grade_${course.id}"></span>
                     </td>
-                 </tbody>
+                </tr>
+                </tbody>  
               `)
+              
+                    
               getGrade(course.id)
               }
             },

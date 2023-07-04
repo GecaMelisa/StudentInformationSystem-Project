@@ -36,6 +36,11 @@ class StudentsDao extends BaseDao {
         WHERE s.id = :stu_id and c.id= :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
     }
 
+    public function getStudentInfo($studentId) {
+        return $this->query("SELECT * FROM students s WHERE s.id = :id", array(':id' => $studentId));
+    }
+    
+
     /*public function getAttendance($studentId){
         $query="SELECT a.status
         FROM attendance a
@@ -51,6 +56,7 @@ class StudentsDao extends BaseDao {
 
         return $attendance;
     }*/
+
 }
 
 ?>
