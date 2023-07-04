@@ -1,4 +1,4 @@
-
+/*
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Spriječi podnošenje obrasca
 
@@ -19,3 +19,4 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         alert('ERROR MESSAGE: Invalid email or password');
     }
 });
+*/

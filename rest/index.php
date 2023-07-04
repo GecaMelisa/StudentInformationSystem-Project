@@ -4,15 +4,44 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require "../vendor/autoload.php"; //means exit from the rest and enter to the vendor; da smo trebali i u dao, ../ bi bilo potrebno
+
 require "dao/StudentsDao.class.php";
-require "dao/CoursesDao.class.php";
-
 require "services/StudentService.php";
+Flight::register("student_service", "StudentService");
+require_once 'routes/StudentRoutes.php';
+
+
+require "dao/CoursesDao.class.php";
+Flight::register("course_dao", "CoursesDao");
 require "services/CourseService.php";
+require_once 'routes/CourseRoutes.php';
+
+require "dao/ProfessorsDao.class.php";
+Flight::register("professor_service", "ProfessorService");
+require "services/ProfessorService.php";
+require_once 'routes/ProfessorRoutes.php';
+
+require "dao/AttendanceDao.class.php";
+Flight::register("attendance_dao", "AttendanceDao");
+require "services/AttendanceService.php";
+require_once 'routes/AttendanceRoutes.php';
+
+require "dao/EnrollmentsDao.class.php";
+Flight::register("enrollement_dao", "EnrollementsDao");
+require "services/EnrollmentService.php";
+require_once 'routes/EnrollmentRoutes.php';
+
+require "dao/GradesDao.class.php";
+Flight::register("grades_service", "GradeService");
+require "services/GradeService.php";
+require_once 'routes/GradeRoutes.php';
 
 
-Flight::register('student_service', "StudentService"); //registering StudentService class
-Flight::register('course_service', "CourseService"); //kada dodamo novi Dao, moramo ovdje registrovati flight i require once
+
+
+
+
+
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
