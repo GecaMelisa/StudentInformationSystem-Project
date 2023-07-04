@@ -4,7 +4,7 @@ let dashboardService = {
         function getGrade(id){
             $.ajax(
                 {
-                    url: "http://localhost/StudentInformationSystem/rest/studentgrades/2/" +id,
+                    url: "rest/studentgrades/" +id,
                     type: "GET",
                     success: function(data){
                         $(`#course_grade_${id}`).html(data[0]["grade"])
@@ -13,7 +13,7 @@ let dashboardService = {
                 })
         }
         $.ajax({
-            url: "http://localhost/StudentInformationSystem/rest/studentcourses/2",
+            url: "http://localhost/StudentInformationSystem-Project/rest/studentcourses/2",
             type: "GET",
             success: function (data) {
               for(course of data) {
