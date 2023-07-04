@@ -196,3 +196,26 @@
 .courses-body .card-header .btn .ects {
   margin-left: auto;
 }
+
+.card {
+  padding: 20px;
+}
+
+.table.course {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+
+.card-body {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+
+
+

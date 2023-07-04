@@ -39,6 +39,14 @@ class StudentsDao extends BaseDao {
     public function getStudentInfo($studentId) {
         return $this->query("SELECT * FROM students s WHERE s.id = :id", array(':id' => $studentId));
     }
+
+    public function getAllGradesByStudentandCourse($studentId, $courseId){
+        return $this->query("SELECT g.midterm, g.final, g.quiz
+        FROM students AS s
+        JOIN grades AS g ON g.students_id = s.id
+        JOIN courses AS c ON g.courses_id = c.id
+        WHERE s.id = :stu_id and c.id= :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
+    }
     
 
     /*public function getAttendance($studentId){

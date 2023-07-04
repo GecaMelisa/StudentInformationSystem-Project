@@ -99,5 +99,11 @@ Flight::route('GET /studentInfo/@id', function($id){
   Flight::json($courses);
 });
 
-
+/*
+get all grades (midterm,final,quiz) for by studen id and course id
+*/
+Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
+  $grades= Flight::student_service()->getAllGradesByStudentandCourse($id, $id2);
+  Flight::json($grades);
+});
 ?>
