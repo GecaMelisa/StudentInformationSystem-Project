@@ -26,6 +26,15 @@ Flight::register("attendance_dao", "AttendanceDao");
 require "services/AttendanceService.php";
 require_once 'routes/AttendanceRoutes.php';
 
+require "dao/EnrollmentsDao.class.php";
+Flight::register("enrollement_dao", "EnrollementsDao");
+require "services/EnrollmentService.php";
+require_once 'routes/EnrollmentRoutes.php';
+
+require "dao/GradesDao.class.php";
+Flight::register("grades_service", "GradeService");
+require "services/GradeService.php";
+require_once 'routes/GradeRoutes.php';
 
 
 
