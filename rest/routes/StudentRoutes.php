@@ -115,3 +115,4 @@ Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
     Flight::json($grades);
   });
 ?>
+

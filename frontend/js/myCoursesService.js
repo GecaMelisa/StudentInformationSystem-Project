@@ -3,9 +3,9 @@ var MyCoursesService = {
       $.ajax({
         url: "../rest/course",
         type: "GET",
-        // beforeSend: function(xhr) {
-        //   xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
-        // },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         success: function(data) {
           $("#course-list").html("");
           var html = "";
