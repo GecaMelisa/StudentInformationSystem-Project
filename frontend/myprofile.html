@@ -5,7 +5,8 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/myprofile.css" rel="stylesheet" />
-        <link href="css/bootstrap.min.css" rel= "stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
 
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,6 +63,16 @@
                       Attendance
                     </a>
 
+                    <a class="nav-link" href="myCourses.html">
+                      <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                      My Courses
+                    </a>
+
+                    <a class="nav-link" href="registration.html">
+                      <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                      Registration
+                    </a>
+
                     <a class="nav-link" href="university.html">
                       <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
                       Information about University
@@ -89,38 +100,53 @@
                             <h3 class="head-label">STUDENT INFO</h3>
                            
                         </div>
+                  
+                  
 
                         <div class="student-profile">
                             <div class="student-image">
                               <img src="images/mely.jpg" alt="Student Image">
                             </div>
                             <div class="student-info">
-                              <h2>Melisa Geca</h2>
+                              <h2></h2>
                               <div class="info-item">
                                 <i class="fas fa-user"></i>
-                                <span><strong>Student ID:</strong> 12345</span>
+                                <span><strong>Student ID:</strong><span id="id"></span> </span>
                               </div>
                               <div class="info-item">
                                 <i class="fas fa-envelope"></i>
-                                <span><strong>Email:</strong> melisa@example.com</span>
+                                <span><strong>Email: </strong><span id="email"></span> </span>
                               </div>
                               <div class="info-item">
                                 <i class="fas fa-globe"></i>
-                                <span><strong>Country:</strong>BiH</span>
+                                <span><strong>Country: </strong><span id="country"></span></span>
                               </div>
                               <div class="info-item">
                                 <i class="fas fa-city"></i>
-                                <span><strong>City:</strong> Sarajevo </span>
+                                <span><strong>City:</strong><span id="city"></span> </span>
                               </div>
                               <div class="info-item">
                                 <i class="fas fa-birthday-cake"></i>
-                                <span><strong>Birth Date:</strong> January 25, 2002</span>
+                                <span><strong>Birth Date:</strong><span id="dob"></span></span>
                               </div>
                               <div class="info-item">
                                 <i class="fas fa-phone"></i>
-                                <span><strong>Phone:</strong> +1 234 5678</span>
+                                <span><strong>Phone:</strong><span id="phone"></span> </span>
                               </div>
                             </div>
                           </div>
+                          </div>
+                      </div>
+                  
+              </main>
+            <script src="js/jquery-3.6.4.js"></script>
+            
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/profileService.js"></script>
+            <script>profileService.init()</script>
 
-                          
+            
+            </body>
+</html>            

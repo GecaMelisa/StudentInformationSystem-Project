@@ -51,6 +51,7 @@
     padding-left: 150px;
     padding-top: 30px;
     color: rgb(17, 148, 185);
+
   }
   
 .student-info h2 {
@@ -75,4 +76,8 @@
 .info-item strong {
     font-weight: bold;
   }
+
+.info-item svg {
+  padding-right: 10px;
+}
   

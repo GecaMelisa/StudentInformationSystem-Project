@@ -7,6 +7,8 @@ class AttendanceService extends BaseService{
     public function __construct(){
        parent::__construct(new AttendanceDao);
 }
+
+
 }
 
 ?>
