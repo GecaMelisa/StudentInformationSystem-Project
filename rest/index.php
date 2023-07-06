@@ -43,6 +43,9 @@ require_once 'routes/GradeRoutes.php';
 
 
 
+
+
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -71,9 +74,6 @@ use Firebase\JWT\Key;
   */
 
 
-
-require_once 'routes/StudentRoutes.php';
-require_once 'routes/CourseRoutes.php';
 
 
 Flight::start();

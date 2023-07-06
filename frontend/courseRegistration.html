@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Courses - Student Information System</title>
+        <title>Course Registration - Student Information System</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/registration.css" rel="stylesheet" />
+        <link href="css/courseRegistration.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">-->
 
@@ -52,12 +52,12 @@
                   <div class="nav"> 
 
                     <a class="nav-link" href="dashboard.html"><!--hyperlink referenca-->
-                        <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div> <!--icon for courses and grades-->
                         Dashboard
                     </a>
 
                     <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
-                      <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                      <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></i></div> <!--icon for courses and grades-->
                       Courses and Grades
                     </a>
 
@@ -71,8 +71,8 @@
                         My Courses
                       </a>
 
-                      <a class="nav-link" href="registration.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                      <a class="nav-link" href="courseRegistration.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                         Registration
                       </a>
 
@@ -114,7 +114,6 @@
                           <thead>
                             <tr>
                               <th>Course</th>
-                              <th>ECTS</th>
                               
                             </tr>
                           </thead>
@@ -132,7 +131,7 @@
                       
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
                     
-                      <script src="js/registration.js"></script>
+                      <script src="js/courseRegistration.js"></script>
 
                       <script>
                         RegistrationService.list();

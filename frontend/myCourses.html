@@ -70,7 +70,7 @@
                         My Courses
                       </a>
 
-                      <a class="nav-link" href="registration.html">
+                      <a class="nav-link" href="courseRegistration.html">
                         <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                         Registration
                       </a>
@@ -106,14 +106,13 @@
                           <div class="table">
 
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800" id="messages">Melisa Geca</h1> <!--Povući iz baze-->
+                        <h1 class="h3 mb-0 text-gray-800" id="messages">Melisa Geca</h1> <!--Napraviti da povuče iz baze-->
                        </div>
                        <div class="table-responsive">
                         <table class="table table-striped table-sm">
                           <thead>
                             <tr>
                               <th>Course</th>
-                              <th>ECTS</th>
                               
                             </tr>
                           </thead>
@@ -131,5 +130,11 @@
                       
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
                     
-                      <script src="js/contact_us.js"></script>
+                      <script src="js/myCoursesService.js"></script>
+                      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+                      <script>
+                        MyCoursesService.list();
+                      </script>
 

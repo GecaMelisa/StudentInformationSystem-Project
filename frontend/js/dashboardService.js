@@ -5,6 +5,7 @@ let dashboardService = {
             $.ajax(
                 {
                     url: "../rest/studentgrades/" +id,
+                    url: "../rest/studentgrades/2/" +id,
                     type: "GET",
                     success: function(data){
                         $(`#course_grade_${id}`).html(data[0]["grade"])
