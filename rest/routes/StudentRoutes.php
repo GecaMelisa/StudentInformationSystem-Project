@@ -10,6 +10,10 @@
     Flight::json( Flight::student_service()->get_all()); // to return results in json format
   });
 
+  Flight::route('GET /student/@id', function($id){
+    Flight::json(Flight::studentService()->select_by_id($id));
+  });
+
 
   Flight:: route('GET /student_by_id', function(){ //here we don't have variable as parameter
     $id = Flight::request()->query['id'];
@@ -19,11 +23,7 @@
 
 
 
-  Flight:: route('GET /students/@id', function($id){ //with parameter
-    //echo "Hello from /students route";
-    //$= new StudentsDao(); //create a object
-    //$results = $->get_by_id($id);
-    //print_r($results);
+  Flight:: route('GET /students/@id', function($id){ 
     Flight::json(Flight::student_service()->get_by_id($id)); // to return results in json format
 
   });
@@ -55,6 +55,16 @@
     Flight::json(['message' => "Student edit successfully", 'data' => Flight::student_service()->update($student, $id)]); 
 
   });
+
+  Flight::route('PUT /rest/changePassword/@id', function($id) {
+    $student = Flight::request()->data->getData();
+    // Logika za promjenu lozinke za odgovarajućeg korisnika s ID-om $id
+
+    // Vratite odgovor ili poruku o uspješnoj promjeni lozinke
+    Flight::json(['message' => 'Password successfully changed']);
+});
+
+  
 
 
   // Delete by id
@@ -114,5 +124,8 @@ Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
     $grades= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
     Flight::json($grades);
   });
+
 ?>
+
+
 

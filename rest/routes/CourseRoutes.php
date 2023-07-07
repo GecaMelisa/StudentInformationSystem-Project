@@ -25,22 +25,42 @@
   /*/
 
   Flight::route('POST /course', function(){ 
-    $request = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
+    $request = Flight::request()->data->getData(); 
     $request['students_id'] = Flight::get('user');
     Flight::json(['message' => "Course added successfully",
                  'data' => Flight::course_dao()->add($request)
-                ]); //nemamo result, zato kreiramo array koji će biti zapravo poruka da smo uspješno izbrisali Coursea
+                ]);
 
   });
 
 /*/ update method
   /*/
 
-  Flight::route('PUT /studentcourses' , function($id){ 
+  Flight::route('PUT /studentcourses/' , function($id){ 
     $Course = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
     Flight::json(['message' => "Course edit successfully", 'data' => Flight::course_dao()->update($Course, $id)]); 
 
   });
+
+  // NOT REGISTERED - REGISTERED COURSE
+
+ Flight::route('PUT /course/@courseId', function($courseId){
+  $status = 1; 
+
+  // Promjena statusa kursa u tabeli courses
+  Flight::course_dao()->updateStatus($courseId, $status);
+
+  // Prebacivanje kursa iz tabele courses u tabelu mycourses
+  Flight::json(['message' => 'Course status successfully updated and moved to My Courses']);
+});
+
+
+Flight::route('PUT /course/delete/@id', function($id){
+  $status = 0;
+  Flight::course_dao()->updateStatus($id, $status);
+  // Vratite odgovor o uspješnom brisanju kursa
+  Flight::json(['message' => 'Course successfully deleted']);
+});
 
 
   /*/ Delete by id
