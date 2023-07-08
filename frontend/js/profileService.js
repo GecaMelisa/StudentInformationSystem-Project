@@ -5,6 +5,9 @@ var profileService = {
       $.ajax({
         url: `../rest/studentInfo/2`,
         type: "GET",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         success: function(data) {
           console.log(data);
           // Update student information in the HTML
@@ -53,6 +56,9 @@ var profileService = {
     $.ajax({
      url: "rest/changePassword/" +id,
      type: "PUT",
+     beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+    },
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function(response) {

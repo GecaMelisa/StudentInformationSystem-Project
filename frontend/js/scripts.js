@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');   //hamburger menu
     if (sidebarToggle) {
         // Uncomment Below to persist sidebar toggle between refreshes
-         if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+         if (localStorage.getItem('sb|sidebar-toggle') == 'true') {
           document.body.classList.toggle('sb-sidenav-toggled');
          }
         sidebarToggle.addEventListener('click', event => {

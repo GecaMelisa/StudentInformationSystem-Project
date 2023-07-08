@@ -25,10 +25,10 @@ var MyCoursesService = {
             $.ajax({
               url: '../rest/course/delete/' + courseId,
               type: 'PUT',
-              /*beforeSend: function(xhr) {
+              beforeSend: function(xhr) {
                 xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
               },
-              */
+              
               data: JSON.stringify({ status: 0 }), 
               contentType: 'application/json',
               success: function(result) {
@@ -62,10 +62,10 @@ var MyCoursesService = {
         beforeSend: function(xhr) {
           xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
         },
-        /*beforeSend: function(xhr) {
+        beforeSend: function(xhr) {
           xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
         },
-        */
+        
         success: function(data) {
           $("#course-list").html("");
           var html = "";

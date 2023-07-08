@@ -23,6 +23,9 @@ var RegistrationService = {
             $.ajax({
               url: `../rest/course/${courseId}`,
               type: 'PUT',
+              beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+              },
               data: JSON.stringify({ status: 1 }),
               contentType: 'application/json',
               success: function(result) {
