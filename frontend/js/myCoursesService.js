@@ -22,6 +22,10 @@ var MyCoursesService = {
             $.ajax({
               url: '../rest/course/delete/' + courseId,
               type: 'PUT',
+              /*beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
+              },
+              */
               data: JSON.stringify({ status: 0 }), 
               contentType: 'application/json',
               success: function(result) {
@@ -52,9 +56,10 @@ var MyCoursesService = {
       $.ajax({
         url: "../rest/course",
         type: "GET",
-        beforeSend: function(xhr) {
-          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        /*beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
         },
+        */
         success: function(data) {
           $("#course-list").html("");
           var html = "";
@@ -78,47 +83,3 @@ var MyCoursesService = {
       });
     }
   }
-    
-
-    
-  
-
-
-
-
-    /*deleteCourse: function(id) {
-      if (confirm("ARE YOU SURE YOU WANT TO DELETE THIS COURSE?")) {
-        $.ajax({
-          url: `rest/studentcourses/` + id,
-          type: `PUT`,
-          data: { status: 0 },
-              success: function(response) {
-                console.log(response);
-                MyCoursesService.list();
-                toastr.success("Course deleted successfully!");
-              },
-         /* success: function(result) {
-            // Promjena statusa kursa na serveru
-            $.ajax({
-              url: `../rest/courses/` + id,
-              type: `PUT`,
-              data: { status: 0 },
-              success: function(response) {
-                console.log(response);
-                MyCoursesService.list();
-                toastr.success("Course deleted successfully!");
-              },
-              error: function(XMLHttpRequest, textStatus, errorThrown) {
-                toastr.error(XMLHttpRequest.responseJSON.message);
-              }
-            });
-          },
-          
-          error: function(XMLHttpRequest, textStatus, errorThrown) {
-            //toastr.error(XMLHttpRequest.responseJSON.message);
-          }
-        });
-      }
-    }
-  };
-*/

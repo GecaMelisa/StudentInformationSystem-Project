@@ -1,39 +1,35 @@
 var UserService = {
-  init: function(){
-    var token = localStorage.getItem("token");
-    var student_id = localStorage.getItem("student_id");
-
-    if (token && student_id>0)
-    {
+  init: function () {
+    var token = localStorage.getItem("user_token");
+    if (token) {
       window.location.replace("dashboard.html");
     }
-
-    $('#login-form').validate({
-      submitHandler: function(form) {
-        var entity = Object.fromEntries((new FormData(form)).entries());
+    $("#login-form").validate({
+      submitHandler: function (form) {
+        var entity = Object.fromEntries(new FormData(form).entries());
         UserService.login(entity);
-      }
+      },
     });
   },
-  login: function(entity){
+  login: function (entity) {
     $.ajax({
-      url: 'rest/login',
-      type: 'POST',
+      url: "rest/login",
+      type: "POST",
       data: JSON.stringify(entity),
       contentType: "application/json",
       dataType: "json",
-      success: function(result) {
-        localStorage.setItem("token", result.token);
-        localStorage.setItem("student_id", result.student_id);
-        if(localStorage.getItem("student_id")>0)
-        window.location.replace("dashboard.html");
-
+      success: function (result) {
+        console.log(result);
+        localStorage.setItem("user_token", result.token);
+        window.location.replace("dashoboard.html");
       },
-
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //toastr.error(XMLHttpRequest.responseJSON.message);
+      },
     });
   },
-  
-  logout: function(){
+
+  logout: function () {
     localStorage.clear();
     window.location.replace("login.html");
   },

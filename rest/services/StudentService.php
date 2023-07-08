@@ -38,5 +38,10 @@ class StudentService extends BaseService{
     public function get_user_students($user){
         return $this->dao->get_user_students($user['id']);
     }
+
+    //FETCH ALL GRADES FOR ONE STUDENT
+    public function getStudentGrades($studentId){
+        return $this->dao->getStudentGrades($studentId);
+    }
 }
 ?>

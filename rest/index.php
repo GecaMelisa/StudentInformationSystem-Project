@@ -3,6 +3,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+
+
 require "../vendor/autoload.php"; //means exit from the rest and enter to the vendor; da smo trebali i u dao, ../ bi bilo potrebno
 
 require "dao/StudentsDao.class.php";
@@ -36,44 +41,29 @@ Flight::register("grades_service", "GradeService");
 require "services/GradeService.php";
 require_once 'routes/GradeRoutes.php';
 
-
-
-
-
-
-
-
-
-
-
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
+/*
 // middleware method for login
-/*Flight::route('/*', function(){
-    //perform JWT decode
-    $path = Flight::request()->url;
-    if ($path == '/login' || $path == '/docs.json') return TRUE; // exclude login route from middleware
-  
-    $headers = getallheaders();
-    if (!$headers['Authorization']){
-      Flight::json(["message" => "Authorization is missing"], 403);
+Flight::route('/*', function(){
+  // Perform JWT decode
+  $path = Flight::request()->url;
+  if ($path == '/login') return TRUE; // Exclude login route from middleware
+
+  $headers = getallheaders();
+  if (!isset($headers['Authorization'])){
+    Flight::json(["message" => "Authorization is missing"], 403);
+    return FALSE;
+  } else {
+    try {
+      $decoded = (array)JWT::decode($headers['Authorization'], new Key(Config::JWT_SECRET()), ['HS256']);
+      Flight::set('user', $decoded);
+      return TRUE;
+    } catch (\Exception $e) {
+      Flight::json(["message" => "Authorization token is not valid"], 403);
       return FALSE;
-    }else{
-      try {
-        $decoded = (array)JWT::decode($headers['Authorization'], new Key(Config::JWT_SECRET(), 'HS256'));
-        Flight::set('user', $decoded);
-        return TRUE;
-      } catch (\Exception $e) {
-        Flight::json(["message" => "Authorization token is not valid"], 403);
-        return FALSE;
-      }
     }
-  });
-
-  */
-
-
+  }
+});
+*/
 
 
 Flight::start();

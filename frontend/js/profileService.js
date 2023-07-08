@@ -111,7 +111,6 @@ var profileService = {
       modal.style.display = "block";
     }
 
-
 $(document).ready(function() {
   profileService.init();
 });

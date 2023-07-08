@@ -102,18 +102,17 @@ class BaseDao{
     
      }
 
+     protected function query($query, $params){
+      $stmt = $this->conn->prepare($query);
+      $stmt->execute($params);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-  protected function query($query, $params){
-    $stmt = $this->conn->prepare($query);
-    $stmt->execute($params);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    protected function query_unique($query, $params){
+      $results = $this->query($query, $params);
+      return reset($results);
+    }
   }
-
-  protected function query_unique($query, $params){
-    $results = $this->query($query, $params);
-    return reset($results);
-  }
-}
 
 
 ?>
