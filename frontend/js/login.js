@@ -13,24 +13,24 @@ var UserService = {
   },
   login: function (entity) {
     $.ajax({
-      url: "rest/login",
+      url: "rest/loginUser",
       type: "POST",
       data: JSON.stringify(entity),
       contentType: "application/json",
       dataType: "json",
       success: function (result) {
-        console.log(result);
-        localStorage.setItem("user_token", result.token);
-        window.location.replace("dashoboard.html");
+        console.log(result.token);
+        localStorage.setItem("token", result.token);
+        window.location.replace("frontend/dashboard.html");
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
-        //toastr.error(XMLHttpRequest.responseJSON.message);
+        toastr.error(XMLHttpRequest.responseJSON.message);
       },
     });
   },
 
   logout: function () {
     localStorage.clear();
-    window.location.replace("login.html");
+    window.location.replace("../login.html");
   },
 };

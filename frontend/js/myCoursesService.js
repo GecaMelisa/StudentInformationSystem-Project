@@ -8,6 +8,9 @@ var MyCoursesService = {
     if (confirm("ARE YOU SURE YOU WANT TO DELETE THIS COURSE?")) {
       $.ajax({
         url: '../rest/course/delete/' + courseId,
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         success: function(courseData) {
           if (courseData) {
             // Priprema objekta sa podacima kursa
@@ -56,6 +59,9 @@ var MyCoursesService = {
       $.ajax({
         url: "../rest/course",
         type: "GET",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         /*beforeSend: function(xhr) {
           xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
         },

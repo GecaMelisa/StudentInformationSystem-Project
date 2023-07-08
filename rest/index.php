@@ -10,6 +10,31 @@ use Firebase\JWT\Key;
 
 require "../vendor/autoload.php"; //means exit from the rest and enter to the vendor; da smo trebali i u dao, ../ bi bilo potrebno
 
+
+
+// middleware method for login
+Flight::route('/*', function(){
+  // Perform JWT decode
+  $path = Flight::request()->url;
+  if ($path == '/loginUser') return TRUE; // Exclude login route from middleware
+
+  $headers = getallheaders();
+  if (!isset($headers['Authorization'])){
+    Flight::json(["message" => "Authorization is missing"], 403);
+    return FALSE;
+  } else {
+    try {
+      $decoded = (array)JWT::decode($headers['Authorization'],new Key('secret_key_20202','HS256'));
+      Flight::set('user', $decoded);
+      return TRUE;
+    } catch (\Exception $e) {
+      Flight::json(["message" => "Authorization token is not valid"], 403);
+      return FALSE;
+    }
+  }
+});
+
+
 require "dao/StudentsDao.class.php";
 require "services/StudentService.php";
 Flight::register("student_service", "StudentService");
@@ -41,29 +66,14 @@ Flight::register("grades_service", "GradeService");
 require "services/GradeService.php";
 require_once 'routes/GradeRoutes.php';
 
-/*
-// middleware method for login
-Flight::route('/*', function(){
-  // Perform JWT decode
-  $path = Flight::request()->url;
-  if ($path == '/login') return TRUE; // Exclude login route from middleware
 
-  $headers = getallheaders();
-  if (!isset($headers['Authorization'])){
-    Flight::json(["message" => "Authorization is missing"], 403);
-    return FALSE;
-  } else {
-    try {
-      $decoded = (array)JWT::decode($headers['Authorization'], new Key(Config::JWT_SECRET()), ['HS256']);
-      Flight::set('user', $decoded);
-      return TRUE;
-    } catch (\Exception $e) {
-      Flight::json(["message" => "Authorization token is not valid"], 403);
-      return FALSE;
-    }
-  }
-});
-*/
+require "dao/UserDao.class.php";
+Flight::register("userDao", "UserDao");
+require_once 'routes/UserRoutes.php';
+
+
+
+
 
 
 Flight::start();
