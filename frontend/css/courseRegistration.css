@@ -31,3 +31,8 @@
     margin: 35px 10px;
 }
 
+.success {
+    color: green;
+    font-weight: bold;
+  }
+  

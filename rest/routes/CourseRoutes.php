@@ -3,10 +3,6 @@
 /*/ get_all
   /*/
   Flight::route('GET /course/', function(){ 
-    //echo "Hello from /course route";
-    //$Course_dao= new courseDao(); //create a object
-    //$results = Flight::Course_dao()->get_all(); //using registred class
-    //print_r($results);
     Flight::json( Flight::course_dao()->get_all()); // to return results in json format
   });
 
@@ -20,10 +16,6 @@
 
 
   Flight::route('GET /course/@id', function($id){ //with parameter
-    //echo "Hello from /course route";
-    //$Course_dao= new courseDao(); //create a object
-    //$results = $Course_dao->get_by_id($id);
-    //print_r($results);
     Flight::json(Flight::course_dao()->get_by_id($id)); // to return results in json format
 
   });
@@ -33,40 +25,49 @@
   /*/
 
   Flight::route('POST /course', function(){ 
-    //echo "Hello from /course route";
-    //$Course_dao= new courseDao(); //create a object
-    $request = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
-    //dodali smo ->data tako da extract  data part; request data
-    //print_r($request); samo za testiranje
-    //die;
-    //$response = $Course_dao->add($request);  //we need to provide add
+    $request = Flight::request()->data->getData(); 
+    $request['students_id'] = Flight::get('user');
     Flight::json(['message' => "Course added successfully",
                  'data' => Flight::course_dao()->add($request)
-                ]); //nemamo result, zato kreiramo array koji će biti zapravo poruka da smo uspješno izbrisali Coursea
+                ]);
 
   });
 
 /*/ update method
   /*/
 
-  Flight::route('PUT /course/@id', function($id){ 
-    //echo "Hello from /course route";
-   // $Course_dao= new courseDao();
+  Flight::route('PUT /studentcourses/' , function($id){ 
     $Course = Flight::request()->data->getData(); // kada dodamo u postmanu json, ovdje trazimo request da vidimo
-    //$response = $Course_dao->update($Course, $id);  //we need to provide add
     Flight::json(['message' => "Course edit successfully", 'data' => Flight::course_dao()->update($Course, $id)]); 
 
   });
+
+  // NOT REGISTERED - REGISTERED COURSE
+
+ Flight::route('PUT /course/@courseId', function($courseId){
+  $status = 1; 
+
+  // Promjena statusa kursa u tabeli courses
+  Flight::course_dao()->updateStatus($courseId, $status);
+
+  // Prebacivanje kursa iz tabele courses u tabelu mycourses
+  Flight::json(['message' => 'Course status successfully updated and moved to My Courses']);
+});
+
+
+Flight::route('PUT /course/delete/@id', function($id){
+  $status = 0;
+  Flight::course_dao()->updateStatus($id, $status);
+  // Vratite odgovor o uspješnom brisanju kursa
+  Flight::json(['message' => 'Course successfully deleted']);
+});
 
 
   /*/ Delete by id
   /*/
 
-  Flight::route('DELETE /course/@id', function($id){ 
-    //echo "Hello from /course route";
-    //$Course_dao= new courseDao(); //create a object
+  Flight::route('DELETE /studentcourses/@id', function($id){ 
     Flight::course_dao()->delete($id); //ne treba nam result ovdje
-    //print_r($results);
     Flight::json(['message' => "Course deleted successfully"]); //nemamo result, zato kreiramo array koji će biti zapravo poruka da smo uspješno izbrisali Coursea
 
   });
@@ -80,6 +81,21 @@
   });
 
 
+ /* get courses for student by student id
+  */
+  Flight::route('GET /studentcourses/@id', function($id){
+    $courses = Flight::student_service()->getCoursesByStudentId($id);
+    Flight::json($courses);
+});
+
+/*delete course from my courses
+*/
+
+Flight::route('DELETE /studentcourses/@id', function($id){ 
+  Flight::course_dao()->delete($id); //ne treba nam result ovdje
+  Flight::json(['message' => "Course deleted successfully"]); //nemamo result, zato kreiramo array koji će biti zapravo poruka da smo uspješno izbrisali Coursea
+
+});
 
 
-?>
+ ?>

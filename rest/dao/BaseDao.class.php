@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__."/../Config.class.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 class BaseDao{
     protected $conn;
@@ -12,19 +16,18 @@ class BaseDao{
 
     public function __construct($table_name){
 
-        try {
-            $this->table_name = $table_name;
-            $servername = Config::DB_HOST();
-            $username = Config::DB_USERNAME();
-            $password = Config::DB_PASSWORD();
-            $schema = Config::DB_SCHEMA();;
-            $this->conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
-            // set the PDO error mode to exception
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
-          } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-          }
+      
+        $this->table_name = $table_name;
+    
+        $servername = Config::DB_HOST();
+        $username = Config::DB_USERNAME();
+        $password = Config::DB_PASSWORD();
+        $schema = Config::DB_SCHEMA();
+        $this->conn = new PDO("mysql:host=$servername;dbname=$schema;", $username, $password);
+        // set the PDO error mode to exception
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      //  echo "Connected successfully <br>";
+      
         
 }
 
@@ -94,7 +97,7 @@ class BaseDao{
           $query .= $column . '=:' . $column . ", ";
         }
         $query = substr($query, 0, -2);
-        $query .= " WHERE ${id_column} = :id";
+        $query .= " WHERE {$id_column} = :id";
         $stmt = $this->conn->prepare($query);
         $entity['id'] = $id; 
         $stmt->execute($entity);
@@ -102,18 +105,17 @@ class BaseDao{
     
      }
 
+     protected function query($query, $params){
+      $stmt = $this->conn->prepare($query);
+      $stmt->execute($params);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-  protected function query($query, $params){
-    $stmt = $this->conn->prepare($query);
-    $stmt->execute($params);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    protected function query_unique($query, $params){
+      $results = $this->query($query, $params);
+      return reset($results);
+    }
   }
-
-  protected function query_unique($query, $params){
-    $results = $this->query($query, $params);
-    return reset($results);
-  }
-}
 
 
 ?>

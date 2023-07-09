@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Courses - Student Information System</title>
+        <title>Course Registration - Student Information System</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/registration.css" rel="stylesheet" />
+        <link href="css/courseRegistration.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script><!--font-->
         <!--<script>dashboardService.init()</script>-->
@@ -45,49 +45,49 @@
             
         </nav>
 
-       <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-              <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">  <!--navigation element with a class of "sb-sidenav", "accordion", and "sb-sidenav-dark" -->
-                <div class="sb-sidenav-menu">
-                  <div class="nav"> 
+        <div id="layoutSidenav">
+          <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">  <!--navigation element with a class of "sb-sidenav", "accordion", and "sb-sidenav-dark" -->
+              <div class="sb-sidenav-menu">
+                <div class="nav"> 
 
-                    <a class="nav-link" href="dashboard.html"><!--hyperlink referenca-->
-                        <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
-                        Dashboard
+                  <a class="nav-link" href="dashboard.html"><!--hyperlink referenca-->
+                      <div class="sb-nav-link-icon"><i class="fas fa-align-justify"></i></div> <!--icon for courses and grades-->
+                      Dashboard
+                  </a>
+
+                  <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
+                    <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
+                    Courses and Grades
+                  </a>
+
+                  <a class="nav-link" href="attendance1.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                    Attendance
+                  </a>
+
+                  <a class="nav-link" href="myCourses.html">
+                      <div class="sb-nav-link-icon"><i class="fas fa-check-circle"></i></div>
+                      My Courses
                     </a>
 
-                    <a class="nav-link" href="courses&grades.html"><!--hyperlink referenca-->
-                      <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div> <!--icon for courses and grades-->
-                      Courses and Grades
+                    <a class="nav-link" href="courseRegistration.html">
+                      <div class="sb-nav-link-icon"><i class="fas fa-plus-circle"></i></div>
+                      Registration
                     </a>
 
-                    <a class="nav-link" href="attendance1.html">
-                      <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
-                      Attendance
-                    </a>
 
-                    <a class="nav-link" href="myCourses.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
-                        My Courses
-                      </a>
+                  <a class="nav-link" href="university.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
+                    Information about University
+                  </a>
 
-                      <a class="nav-link" href="registration.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
-                        Registration
-                      </a>
+                  <a class="nav-link" href="#" onclick="UserService.logout()">
+                    <div class="sb-nav-link-icon" ><i class="fas fa-sign-out-alt"></i></div>
+                    Logout
+                  </a>
 
-
-                    <a class="nav-link" href="university.html">
-                      <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
-                      Information about University
-                    </a>
-
-                    <a class="nav-link" href="login.html">
-                      <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
-                      Logout
-                    </a>
-
-                  </div>
+                </div>
                 </div>
                 
               </nav>
@@ -114,7 +114,6 @@
                           <thead>
                             <tr>
                               <th>Course</th>
-                              <th>ECTS</th>
                               
                             </tr>
                           </thead>
@@ -128,13 +127,26 @@
                           </tbody>
                         </table>
                       </div>
-                    
+                 
                       
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
                     
-                      <script src="js/registration.js"></script>
+                      <script src="js/courseRegistration.js"></script>
+                     <!-- <div id="message" style="display: none;"></div>-->
+
 
                       <script>
+
                         RegistrationService.list();
                       </script>
+                     
+                      <!-- <div id="message" style="display: none;"></div>-->
+ 
+ 
+                 
+                        <script src="js/login.js"></script>
+                    
+
+
+                   
 
