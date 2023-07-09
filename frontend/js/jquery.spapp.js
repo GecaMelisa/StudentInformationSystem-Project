@@ -1,6 +1,6 @@
 (function($) {
 
-  $.jQuerySPApp = function(options) {
+  $.jquery.spapp = function(options) {
 
     // set config and routes
     var config, routes = {};

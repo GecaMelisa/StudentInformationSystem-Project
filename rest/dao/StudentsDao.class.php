@@ -72,7 +72,10 @@ class StudentsDao extends BaseDao {
     public function getElementById($studentId){
         return $this->query("SELECT s.password FROM students  WHERE students_id = :id", array(':id' => $studentId));
     }
-        
+    public function changePassword($password,$email){
+        return $this->query("UPDATE students
+        SET password=:password WHERE email=:email;", ['email' => $email, 'password' => $password]);
+      }
     
 
 }

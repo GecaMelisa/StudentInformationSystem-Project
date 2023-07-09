@@ -43,5 +43,8 @@ class StudentService extends BaseService{
     public function getStudentGrades($studentId){
         return $this->dao->getStudentGrades($studentId);
     }
+    public function changePassword($password,$email){
+        return $this->dao->changePassword($password,$email);
+    }
 }
 ?>

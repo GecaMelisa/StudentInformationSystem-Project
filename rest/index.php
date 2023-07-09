@@ -16,7 +16,7 @@ require "../vendor/autoload.php"; //means exit from the rest and enter to the ve
 Flight::route('/*', function(){
   // Perform JWT decode
   $path = Flight::request()->url;
-  if ($path == '/loginUser') return TRUE; // Exclude login route from middleware
+  if ($path == '/loginUser' || $path == '/docs.json' ) return TRUE; // Exclude login route from middleware
 
   $headers = getallheaders();
   if (!isset($headers['Authorization'])){
@@ -32,6 +32,13 @@ Flight::route('/*', function(){
       return FALSE;
     }
   }
+});
+
+/*REST API documentation endpoint*/
+Flight::route('GET /docs.json',function(){
+  $openapi=\OpenApi\Generator::scan(["./services"]);
+  header('Content-Type:application/json');
+  echo $openapi->toJson();
 });
 
 

@@ -50,10 +50,10 @@ var profileService = {
     };
     console.log(id);
 
-    // AJAX poziv za edit operaciju
+    //EDIT PASSWORD
     
     $.ajax({
-     url: "rest/changePassword/" +id,
+     url: "../rest/changePassword/" +id,
      type: "PUT",
      beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -102,12 +102,7 @@ var profileService = {
       changePasswordForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-      function closeChangePasswordForm() {
-          var modal = document.getElementById("change-password-modal");
-          modal.style.display = "none";
-        }
       
-
         // Pozivanje funkcije changePassword iz profileService objekta
         profileService.changePassword();
       });
@@ -116,6 +111,10 @@ var profileService = {
       modal.style.display = "block";
     }
 
+      function closeChangePasswordForm() {
+          var modal = document.getElementById("change-password-modal");
+          modal.style.display = "none";
+        }
 $(document).ready(function() {
   profileService.init();
 });
