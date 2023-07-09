@@ -37,12 +37,14 @@ var profileService = {
     var newPassword = document.getElementById("new-password").value;
     var confirmPassword = document.getElementById("confirm-password").value;
 
-    // Validacija i provjera podataka
-
     if (newPassword != confirmPassword) {
-      alert("Nova lozinka i Potvrdi lozinku se ne podudaraju.");
+      alert("New password and Confirm password do not match.");
       return;
-    }
+    } //else if (currentPassword != currentPassword){
+      //alert("Bad Password");
+      //return;}
+
+    
 
     var data = {
       currentPassword: currentPassword,
@@ -61,8 +63,7 @@ var profileService = {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function(response) {
-      alert("Lozinka uspješno promijenjena.");
-    // Resetovanje forme ili dodatne operacije
+      alert("Password successfully changed.");
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     alert("Greška: " + XMLHttpRequest.responseText);

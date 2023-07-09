@@ -53,7 +53,7 @@ class StudentsDao extends BaseDao {
 
     /*
     get all attendace for attendance.html so attendace for each course for specific student 
-    */
+    
     public function getAllAttendanceByStudentandCourse($studentId, $courseId){
         return $this->query(
             "SELECT a.att_per_course
@@ -63,6 +63,7 @@ class StudentsDao extends BaseDao {
         WHERE c.status = 1 AND a.student_id = :stu_id AND c.id = :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
         
     }
+    */
 
 
     public function getStudentGrades($studentId) {
@@ -76,6 +77,19 @@ class StudentsDao extends BaseDao {
         return $this->query("UPDATE students
         SET password=:password WHERE email=:email;", ['email' => $email, 'password' => $password]);
       }
+
+        /*
+    get all attendace for attendance.html so attendace for each course for specific student 
+    */
+    public function getAllAttendanceByStudentandCourse($studentId, $courseId){
+        return $this->query(
+            "SELECT a.att_per_course
+        FROM attendance a
+        JOIN courses c ON a.course_id = c.id
+        JOIN students s ON a.student_id = s.id
+        WHERE c.status = 1 AND a.student_id = :stu_id AND c.id = :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
+        
+    }
     
 
 }

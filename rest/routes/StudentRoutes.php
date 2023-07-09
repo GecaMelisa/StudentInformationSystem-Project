@@ -60,7 +60,7 @@
     Flight::json(['message' => $data]);
     // Provjera da li postoji student s ID-om $id
     $student = Flight::student_service()->get_by_id(Flight::get('user')["id"]);
-    if($student["password"] = $data["currentPassword"]){
+    if($student[0]["password"] == $data["currentPassword"]){
       Flight::student_service()->changePassword($data["newPassword"],Flight::get('user')["email"]);
     }
 });
@@ -128,6 +128,13 @@ Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
 
 /*
   all attendance for some specific student and his course
+  */
+  Flight::route('GET /allattendance/@stu_id/@cour_id', function($id, $id2){
+    $attendance= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
+    Flight::json($attendance);
+  });
+
+  /*all attendance for some specific student and his course
   */
   Flight::route('GET /allattendance/@stu_id/@cour_id', function($id, $id2){
     $attendance= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
