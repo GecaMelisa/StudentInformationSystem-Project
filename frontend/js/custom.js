@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("main#spapp > section").height($(document).height() - 60);
   
     var app = $.spapp({ pageNotFound: "error_404" }); // initialize
@@ -39,3 +39,5 @@ $(document).ready(function () {
     // run app
     app.run();
   });
+
+  */

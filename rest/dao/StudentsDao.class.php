@@ -68,33 +68,12 @@ class StudentsDao extends BaseDao {
     public function getStudentGrades($studentId) {
         return $this->query("SELECT c.id, c.name, g.final, g.midterm, g.quiz, g.courses_id FROM grades g JOIN courses c ON g.courses_id = c.id   WHERE students_id = :id", array(':id' => $studentId));
     }
-        
-       /* ("SELECT a.lab, a.lesson, a.total
-        FROM enrollments AS e 
-        JOIN attendance AS a ON a.enrollments_id = e.id
-        JOIN courses AS c ON e.courses_id = c.id
-        JOIN students AS s ON e.students_id= s.id
-        WHERE s.id = :stu_id and c.id= :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
+
+    public function getElementById($studentId){
+        return $this->query("SELECT s.password FROM students  WHERE students_id = :id", array(':id' => $studentId));
     }
-    */
+        
     
-    
-
-    /*public function getAttendance($studentId){
-        $query="SELECT a.status
-        FROM attendance a
-        JOIN enrollments AS e ON a.enrollments_id=e.id
-        JOIN students AS s ON s.id=e.students_id
-        JOIN courses AS c ON e.courses_id=c.id
-        WHERE s.id = :id";
-
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $studentId); 
-        $stmt->execute();
-        $attendance = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $attendance;
-    }*/
 
 }
 

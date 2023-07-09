@@ -10,7 +10,6 @@ var profileService = {
         },
         success: function(data) {
           console.log(data);
-          // Update student information in the HTML
           $(".student-info h2").text(`${data[0].firstName} ${data[0].lastName}`);
           $("#id").text(data[0].studentID);
           $("#email").text(data[0].email);
@@ -40,7 +39,7 @@ var profileService = {
 
     // Validacija i provjera podataka
 
-    if (newPassword !== confirmPassword) {
+    if (newPassword != confirmPassword) {
       alert("Nova lozinka i Potvrdi lozinku se ne podudaraju.");
       return;
     }
