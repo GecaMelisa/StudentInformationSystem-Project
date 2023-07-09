@@ -51,14 +51,18 @@ class StudentsDao extends BaseDao {
     /*
     get all attendace for attendance.html so attendace for each course for specific student 
     */
-    public function getAllAttendanceByStudentandCourse($studentId, $courseId){
-        return $this->query("SELECT a.lab, a.lesson, a.total
-        FROM enrollments AS e 
-        JOIN attendance AS a ON a.enrollments_id = e.id
-        JOIN courses AS c ON e.courses_id = c.id
-        JOIN students AS s ON e.students_id= s.id
-        WHERE s.id = :stu_id and c.id= :cour_id", ["stu_id" => $studentId, "cour_id" => $courseId]);
+    public function getAllAttendanceByStudentAndCourse($studentId, $courseId) {
+        return $this->query("
+            SELECT a.lab, a.lesson, a.total
+            FROM enrollments AS e
+            JOIN attendance AS a ON a.enrollments_id = e.id
+            JOIN courses AS c ON e.courses_id = c.id
+            JOIN students AS s ON e.students_id = s.id
+            WHERE s.id = :stu_id AND c.id = :cour_id",
+            ["stu_id" => $studentId, "cour_id" => $courseId]
+        );
     }
+    
     
 
     /*public function getAttendance($studentId){

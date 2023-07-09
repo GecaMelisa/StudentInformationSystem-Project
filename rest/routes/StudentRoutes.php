@@ -110,8 +110,9 @@ Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
 /*
   all attendance for some specific student and his course
   */
-  Flight::route('GET /allattendance/@stu_id/@cour_id', function($id, $id2){
-    $grades= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
-    Flight::json($grades);
-  });
+  Flight::route('GET /allattendance/@stu_id/@cour_id', function($stu_id, $cour_id) {
+    $attendance = Flight::student_service()->getAllAttendanceByStudentAndCourse($stu_id, $cour_id);
+    Flight::json($attendance);
+});
+
 ?>

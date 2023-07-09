@@ -15,6 +15,13 @@ var profileService = {
             $("#city").text(data[0].city);
             $("#dob").text(data[0].dateOfBirth);
             $("#phone").text(data[0].phone);
+            const student = data[0]; // Assuming the response data is an array with a single student object
+            const photoUrl = student.photo; // Assuming the column name in the database is "photo"
+            $('.student-image img').attr('src', photoUrl);
+
+            
+
+
           },
           error: function(xhr, textStatus, errorThrown) {
             console.log("Error:", errorThrown);
