@@ -60,7 +60,7 @@
     Flight::json(['message' => $data]);
     // Provjera da li postoji student s ID-om $id
     $student = Flight::student_service()->get_by_id(Flight::get('user')["id"]);
-    if($student["password"] == $data["currentPassword"]){
+    if($student["password"] = $data["currentPassword"]){
       Flight::student_service()->changePassword($data["newPassword"],Flight::get('user')["email"]);
     }
 });

@@ -50,7 +50,7 @@ var profileService = {
     };
     console.log(id);
 
-    //EDIT PASSWORD
+    // AJAX poziv za edit operaciju
     
     $.ajax({
      url: "../rest/changePassword/" +id,
@@ -103,6 +103,7 @@ var profileService = {
         event.preventDefault();
 
       
+
         // Pozivanje funkcije changePassword iz profileService objekta
         profileService.changePassword();
       });
