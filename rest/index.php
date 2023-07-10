@@ -2,13 +2,13 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+require "../vendor/autoload.php"; //means exit from the rest and enter to the vendor; da smo trebali i u dao, ../ bi bilo potrebno
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 
 
-require "../vendor/autoload.php"; //means exit from the rest and enter to the vendor; da smo trebali i u dao, ../ bi bilo potrebno
 
 
 

@@ -17,7 +17,8 @@ var profileService = {
           $("#city").text(data[0].city);
           $("#dob").text(data[0].dateOfBirth);
           $("#phone").text(data[0].phone);
-
+          console.log(data[0].photo);
+        $('.student-image img').attr('src', data[0].photo);
           profileService.changePassword(data[0].studentID);
         },
         error: function(xhr, textStatus, errorThrown) {
