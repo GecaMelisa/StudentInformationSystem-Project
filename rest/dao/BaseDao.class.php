@@ -15,21 +15,10 @@ class BaseDao{
      */
 
     public function __construct($table_name){
-
       
-        $this->table_name = $table_name;
-    
-        $servername = Config::DB_HOST();
-        $username = Config::DB_USERNAME();
-        $password = Config::DB_PASSWORD();
-        $schema = Config::DB_SCHEMA();
-        $this->conn = new PDO("mysql:host=$servername;dbname=$schema;", $username, $password);
-        // set the PDO error mode to exception
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      //  echo "Connected successfully <br>";
       
         
-}
+
 
   /**
     * Method used to get all entities from db
