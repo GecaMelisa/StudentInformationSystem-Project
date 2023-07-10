@@ -1,3 +1,4 @@
+
 var profileService = {
   init: function() {
     // Function to retrieve student information
@@ -121,4 +122,3 @@ var profileService = {
 $(document).ready(function() {
   profileService.init();
 });
-

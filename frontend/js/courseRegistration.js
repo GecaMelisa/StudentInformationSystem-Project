@@ -52,7 +52,6 @@ var RegistrationService = {
     }
   },
   
-
     list: function() {
       $.ajax({
         url: "../rest/course",

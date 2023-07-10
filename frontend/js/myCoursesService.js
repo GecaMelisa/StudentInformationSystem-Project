@@ -45,7 +45,7 @@ var MyCoursesService = {
               url: '../rest/course/delete/' + courseId,
               type: 'PUT',
               beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
+                xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
               },
               
               data: JSON.stringify({ status: 0 }), 

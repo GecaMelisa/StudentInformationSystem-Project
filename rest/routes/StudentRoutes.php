@@ -24,7 +24,6 @@
   });
 
 
-
   Flight:: route('GET /students/@id', function($id){ 
     Flight::json(Flight::student_service()->get_by_id($id)); // to return results in json format
 
@@ -64,10 +63,6 @@
       Flight::student_service()->changePassword($data["newPassword"],Flight::get('user')["email"]);
     }
 });
-
-
-
-  
 
 
   // Delete by id
