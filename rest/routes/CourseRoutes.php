@@ -44,11 +44,11 @@
 
   // NOT REGISTERED - REGISTERED COURSE
 
- Flight::route('PUT /course/@courseId', function($courseId){
+ Flight::route('PUT /course/add/@id', function($id){
   $status = 1; 
 
   // Promjena statusa kursa u tabeli courses
-  Flight::course_dao()->updateStatus($courseId, $status);
+  Flight::course_dao()->updateStatus($id, $status);
 
   // Prebacivanje kursa iz tabele courses u tabelu mycourses
   Flight::json(['message' => 'Course status successfully updated and moved to My Courses']);
@@ -61,6 +61,14 @@ Flight::route('PUT /course/delete/@id', function($id){
   // Vratite odgovor o uspješnom brisanju kursa
   Flight::json(['message' => 'Course successfully deleted']);
 });
+
+/*Flight::route('PUT /course/add/@id', function($id){
+  $status = 0;
+  Flight::course_dao()->updateStatus($id, $status);
+  // Vratite odgovor o uspješnom brisanju kursa
+  Flight::json(['message' => 'Course successfully added']);
+});
+*/
 
 
   /*/ Delete by id
