@@ -13,11 +13,27 @@ class BaseDao{
     /**
      * Class constructor used to establish connection to db
      */
-
     public function __construct($table_name){
+      //connecting to the database 
+      $this->table_name = $table_name;
+      $servername = Config::DB_HOST();
+      $username = Config::DB_USERNAME();
+      $password = Config::DB_PASSWORD();
+      $schema = Config::DB_SCHEME();
+      $port = Config::DB_PORT();
+
+      $options = array(
+        PDO::MYSQL_ATTR_SSL_CA => 'https://drive.google.com/file/d/1Kyp3hrzTgDORPSu3bcOxD22EU9AazNqf/view',
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+
+      );
       
+      $this->conn = new PDO("mysql:host=$servername;dbname=$schema;port=$port", $username, $password, $options);
+      // set the PDO error mode to exception
+      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
       
-        
+  }
 
 
   /**
@@ -105,6 +121,8 @@ class BaseDao{
       return reset($results);
     }
   }
+
+
 
 
 ?>
