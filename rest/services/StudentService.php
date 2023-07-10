@@ -31,10 +31,6 @@ class StudentService extends BaseService{
         return $this->dao->getAllGradesByStudentandCourse($studentId, $courseId);
     }
     
-    public function getAllAttendanceByStudentandCourse($studentId, $courseId){
-        return $this->dao->getAllAttendanceByStudentandCourse($studentId, $courseId);
-    }
-
     public function get_user_students($user){
         return $this->dao->get_user_students($user['id']);
     }
@@ -42,6 +38,13 @@ class StudentService extends BaseService{
     //FETCH ALL GRADES FOR ONE STUDENT
     public function getStudentGrades($studentId){
         return $this->dao->getStudentGrades($studentId);
+    }
+    public function changePassword($password,$email){
+        return $this->dao->changePassword($password,$email);
+    }
+
+    public function getAllAttendanceByStudentandCourse($studentId, $courseId){
+        return $this->dao->getAllAttendanceByStudentandCourse($studentId, $courseId);
     }
 }
 ?>

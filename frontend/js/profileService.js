@@ -38,12 +38,14 @@ var profileService = {
     var newPassword = document.getElementById("new-password").value;
     var confirmPassword = document.getElementById("confirm-password").value;
 
-    // Validacija i provjera podataka
-
     if (newPassword != confirmPassword) {
-      alert("Nova lozinka i Potvrdi lozinku se ne podudaraju.");
+      alert("New password and Confirm password do not match.");
       return;
-    }
+    } //else if (currentPassword != currentPassword){
+      //alert("Bad Password");
+      //return;}
+
+    
 
     var data = {
       currentPassword: currentPassword,
@@ -54,7 +56,7 @@ var profileService = {
     // AJAX poziv za edit operaciju
     
     $.ajax({
-     url: "rest/changePassword/" +id,
+     url: "../rest/changePassword/" +id,
      type: "PUT",
      beforeSend: function(xhr) {
       xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -62,8 +64,7 @@ var profileService = {
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function(response) {
-      alert("Lozinka uspješno promijenjena.");
-    // Resetovanje forme ili dodatne operacije
+      alert("Password successfully changed.");
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     alert("Greška: " + XMLHttpRequest.responseText);
@@ -103,10 +104,6 @@ var profileService = {
       changePasswordForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-      function closeChangePasswordForm() {
-          var modal = document.getElementById("change-password-modal");
-          modal.style.display = "none";
-        }
       
 
         // Pozivanje funkcije changePassword iz profileService objekta
@@ -117,6 +114,10 @@ var profileService = {
       modal.style.display = "block";
     }
 
+      function closeChangePasswordForm() {
+          var modal = document.getElementById("change-password-modal");
+          modal.style.display = "none";
+        }
 $(document).ready(function() {
   profileService.init();
 });

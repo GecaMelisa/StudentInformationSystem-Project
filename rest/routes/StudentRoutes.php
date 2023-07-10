@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @OA\Get(path="/studentcourses", tags={"students"}, security={{"ApiKeyAuth": {}}},
+ *         summary="Return all students from the API. ",
+ *         @OA\Response( response=200, description="List of students.")
+ * )
+ */
+
 // get_all
   //
   Flight:: route('GET /students', function(){ 
@@ -48,36 +55,14 @@
   });
 
 
-  Flight::route('PUT /rest/changePassword/@id', function($id) {
+  Flight::route('PUT /changePassword/@id', function($id) {
     $data = Flight::request()->data->getData();
-
+    Flight::json(['message' => $data]);
     // Provjera da li postoji student s ID-om $id
-    $student = Flight::studentDao()->get_student_by_id($id);
-    if (!$student) {
-        Flight::json(['message' => 'Student not found'], 404);
-        return;
+    $student = Flight::student_service()->get_by_id(Flight::get('user')["id"]);
+    if($student[0]["password"] == $data["currentPassword"]){
+      Flight::student_service()->changePassword($data["newPassword"],Flight::get('user')["email"]);
     }
-
-    // Provjera trenutne lozinke studenta
-    $currentPassword = $data['currentPassword'];
-    if (!password_verify($currentPassword, $student['password'])) {
-        Flight::json(['message' => 'Invalid current password'], 400);
-        return;
-    }
-
-    // Generišite novu hashovanu lozinku
-    $newPassword = $data['newPassword'];
-    $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-
-    // Ažurirana lozinka studenta u bazi podataka
-    $success = Flight::studentsDao()->update_password($id, $hashedNewPassword);
-    if (!$success) {
-        Flight::json(['message' => 'Password update failed'], 500);
-        return;
-    }
-
-    // Vratite odgovor o uspješnoj promjeni lozinke
-    Flight::json(['message' => 'Password successfully changed']);
 });
 
 
@@ -143,6 +128,13 @@ Flight::route('GET /allgrades/@stu_id/@cour_id', function($id, $id2){
 
 /*
   all attendance for some specific student and his course
+  */
+  Flight::route('GET /allattendance/@stu_id/@cour_id', function($id, $id2){
+    $attendance= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
+    Flight::json($attendance);
+  });
+
+  /*all attendance for some specific student and his course
   */
   Flight::route('GET /allattendance/@stu_id/@cour_id', function($id, $id2){
     $attendance= Flight::student_service()->getAllAttendanceByStudentandCourse($id, $id2);
