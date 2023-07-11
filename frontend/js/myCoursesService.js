@@ -1,6 +1,6 @@
 var MyCoursesService = {
 
-  getStudentInfo: function (studentId) {
+  /*getStudentInfo: function (studentId) {
     $.ajax({
       url: `../rest/studentInfo/2`,
       type: "GET",
@@ -18,6 +18,7 @@ var MyCoursesService = {
 
       getStudentInfo(2);
     },
+    */
 
   deleteCourse: function(courseId) {
     if (!courseId) {
@@ -45,19 +46,21 @@ var MyCoursesService = {
               url: '../rest/course/delete/' + courseId,
               type: 'PUT',
               beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', localStorage.getItem('user_token'));
+                xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
               },
               
               data: JSON.stringify({ status: 0 }), 
               contentType: 'application/json',
               success: function(result) {
+                toastr.success('Course successfully deleted');
+
 
                 // Promjena statusa kursa na stranici MyCourses
                 MyCoursesService.list();
   
                 // Uklonite kurs sa stranice MyCourses i prikažite ga na stranici Course Registration
                 RegistrationService.deleteCourse(courseId);
-                toastr.success('Course successfully deleted');
+                  
               },
               error: function(XMLHttpRequest, textStatus, errorThrown) {
                 toastr.error(XMLHttpRequest.responseJSON.message);
@@ -74,7 +77,7 @@ var MyCoursesService = {
     }
   },
 
-    list: function() {    //all registered courses
+    list: function() {
       $.ajax({
         url: "../rest/course",
         type: "GET",
@@ -85,7 +88,7 @@ var MyCoursesService = {
           $("#course-list").html("");
           var html = "";
           for (let i = 0; i < data.length; i++) {
-            if (data[i].status === 1) {
+            if (data[i].status == 1) {
               html += `
                 <tr>
                   <td>${data[i].name}</td>
@@ -97,10 +100,13 @@ var MyCoursesService = {
             }
           }
           $("#course-list").html(html);
+          
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           toastr.error(XMLHttpRequest.responseJSON.message);
         }
       });
-    }
+    },
+
+    
   }
