@@ -31,3 +31,18 @@
     margin: 35px 10px;
 }
 
+.container-fluid-menu-active{
+    width: 85% !important;
+    float: right;
+}
+
+.toastr-success {
+    background-color: #00ff00; /* Boja za uspješne poruke */
+    color: #ffffff;
+  }
+  
+  .toastr-error {
+    background-color: #ff0000; /* Boja za poruke o greškama */
+    color: #ffffff;
+  }
+  

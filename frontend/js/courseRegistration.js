@@ -1,5 +1,31 @@
 var RegistrationService = {
 
+  deleteCourse: function(courseId) {
+    if (!courseId) {
+      console.log('Invalid course ID');
+      return;
+    }
+    if (confirm("YOU SURE?")) {
+      $.ajax({
+        url: '../rest/course/delete/' + courseId,
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
+        type: 'PUT',
+        data: JSON.stringify({ status: 0 }), 
+        contentType: 'application/json',
+        success: function(result) {
+          MyCoursesService.list();
+          toastr.success('Course successfully deleted');
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          toastr.error(XMLHttpRequest.responseJSON.message);
+        }
+      });
+    }
+  },
+  
+
   addCourse: function(courseId) {
     if (!courseId) {
       console.log('Invalid course ID');
@@ -8,7 +34,10 @@ var RegistrationService = {
     if (confirm("ARE YOU SURE YOU WANT TO REGISTER THIS COURSE?")) {
       // Prikupljanje podataka o kursu iz baze podataka
       $.ajax({
-        url: `../rest/course/${courseId}`, 
+        url: `../rest/course/add/`+courseId, 
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         success: function(courseData) {
           if (courseData) {
             // Priprema objekta sa podacima kursa
@@ -21,11 +50,12 @@ var RegistrationService = {
   
             // Slanje AJAX zahtjeva za dodavanje kursa
             $.ajax({
-              url: `../rest/course/${courseId}`,
+              url: `../rest/course/add/` +courseId,
               type: 'PUT',
               beforeSend: function(xhr) {
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
               },
+
               data: JSON.stringify({ status: 1 }),
               contentType: 'application/json',
               success: function(result) {
@@ -34,7 +64,7 @@ var RegistrationService = {
 
                     // Ukloni kurs sa stranice Course Registratii prikažite ga na stranici My Courses
                     MyCoursesService.addCourse();
-                    toastr.success('Course successfully registered');
+                      toastr.success('Course successfully registered');
                   },
                   error: function(XMLHttpRequest, textStatus, errorThrown) {
                     toastr.error(XMLHttpRequest.responseJSON.message);

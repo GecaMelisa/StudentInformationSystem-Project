@@ -1,7 +1,8 @@
 
 let dashboardService = {
-    init: function() { 
-       $.ajax({
+    init: function() {
+
+        $.ajax({
             url: "../rest/course",
             type: "GET",
             beforeSend: function(xhr) {                  

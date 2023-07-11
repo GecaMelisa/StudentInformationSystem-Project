@@ -26,7 +26,7 @@
     color: rgb(17, 148, 185);
 }
 
-.container-fluid .attendance-body .form {
+/*.container-fluid .attendance-body .form {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -85,7 +85,8 @@
 }
 
 /*.table tbody td:hover {
-    background-color: #f2f2f2; /* Promenite boju pozadine po želji */
+    background-color: #f2f2f2; /* Promenite boju pozadine po želji
+     */
 
 
   
