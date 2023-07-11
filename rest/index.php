@@ -13,7 +13,7 @@ require "../vendor/autoload.php"; //means exit from the rest and enter to the ve
 
 
 // middleware method for login
-Flight::route('/*', function(){
+/*Flight::route('/*', function(){
   // Perform JWT decode
   $path = Flight::request()->url;
   if ($path == '/loginUser' || $path == '/docs.json' || $path=='/' || $path=='/dashboard') return TRUE; // Exclude login route from middleware
@@ -32,7 +32,7 @@ Flight::route('/*', function(){
       return FALSE;
     }
   }
-});
+});*/
 
 /*REST API documentation endpoint*/   /*read all routes that we have within project, convert them to json and display to screen with route that we ahve here*/
 Flight::route('GET /docs.json',function(){
