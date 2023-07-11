@@ -1,19 +1,7 @@
-let globalAttendance = {}
 
 let dashboardService = {
     init: function() {
 
-        /*function getGrade(id){
-            $.ajax(
-                {
-                    url: "../rest/studentgrades/" + id,
-                    type: "GET",
-                    success: function(data){
-                        $(`#course_grade_${id}`).html(data[0]["grade"])
-                    }
-                });
-        }
-        */
         $.ajax({
             url: "../rest/course",
             type: "GET",

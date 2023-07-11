@@ -1,24 +1,5 @@
 var MyCoursesService = {
 
-  /*getStudentInfo: function (studentId) {
-    $.ajax({
-      url: `../rest/studentInfo/2`,
-      type: "GET",
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
-      },
-      success: function(data) {
-        console.log(data);
-        $(".student-info h2").text(`${data[0].firstName} ${data[0].lastName}`);
-      },
-        error: function(xhr, textStatus, errorThrown) {
-          console.log("Error:", errorThrown);
-        }
-      });
-
-      getStudentInfo(2);
-    },
-    */
 
   deleteCourse: function(courseId) {
     if (!courseId) {
