@@ -5,6 +5,7 @@
                 <link rel="stylesheet" href="css/styles.css" />
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> <!--plugin for table-->
                 <link href="css/global.css" rel="stylesheet" />
+                <link href="css/myprofile.css" rel="stylesheet" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
                 <link rel="stylesheet" href="css/jQuerySPApp.css">
@@ -74,6 +75,10 @@
                             Courses and Grades
                           </a>
         
+                          <a class="nav-link" href="#attendance1">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
+                            Attendance
+                          </a>
         
                           <a class="nav-link" href="#myCourses">
                               <div class="sb-nav-link-icon"><i class="fas fa-check-circle"></i></div>
@@ -105,6 +110,7 @@
                     <main id="jqueryspapp" role="main">
                       <section id="dashboard" data-load="dashboard.html"></section>
                       <section id="coursesandgrades" data-load="coursesandgrades.html"></section>
+                      <section id="attendance1" data-load="attendance1.html"></section>
                       <section id="university" data-load="university.html"></section>
                       <section id="login" data-load="login.html"></section>
                       <section id="myCourses" data-load="myCourses.html"></section>
@@ -120,77 +126,77 @@
                        <!---<main id = "spapp" role = "main" >    
 
                         </main>
-                        <script>
+<script>
                       
-                        var nav =
-                        '<a class="nav-link" href="dashboard.html">' + 
-                                '<div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>' +
-                                'Dashboard'+
-                            "</a>" +
-        
-                        '<a class="nav-link" href="courses&grades.html">' + 
-                              '<div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>' +
-                              'Courses'+ 
-                            "</a>" +
-        
-                            '<a class="nav-link" href="attendance1.html">' + 
-                                '<div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>' + 
-                                'Attendance'+
-                            "</a>" +
-        
-                            '<a class="nav-link" href="university.html">' +
-                                '<div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>' +
-                                'Information' +
-                           "</a>";
-                           
-                        $("#tabs").html(nav);
-        
-        
-                        var main = 
-                        '<section id="dashboard">Dashboard </section>' + 
-                        '<section id="courses">Courses&Grades </section>' + 
-                        '<section id="attendance">Attendance </section>' + 
-                        '<section id="info">Information </section>';
-                         $("#spapp").html(main);
-        
-                         /* AJAX REQUEST TO GET ALL STUDENTS FROM DB 
-                            append elements
-                         */
-        
-                        $.get('rest/students', function(data){
-                                var html = '';
-                                for (var i =0; i<data.length; i++){
-                                        html += '<<tr>' + 
-                                                '<td>' + data[0].firstName+'</td>' + 
-                                                '<td>' + data[0].lastName+'</td>' + 
-                                                '</tr>';
-        
-                                                $("#students").html(html);
-                                                console.log(data);
-        
-                                }
+  var nav =
+  '<a class="nav-link" href="dashboard.html">' + 
+          '<div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>' +
+          'Dashboard'+
+      "</a>" +
 
-                        });
-                      -->
+  '<a class="nav-link" href="courses&grades.html">' + 
+        '<div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>' +
+        'Courses'+ 
+      "</a>" +
 
-                        
-                        
-                </script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        
-                <script src="js/JQuerySPApp.js"></script>
+      '<a class="nav-link" href="attendance1.html">' + 
+          '<div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>' + 
+          'Attendance'+
+      "</a>" +
 
-               <script type="text/javascript">
-        
-                $(document).ready(function(){
-                  var app = $.jQuerySPApp({defaultView : "dashboard"});
-              
-              
-                  //define routes
-              
-                  app.run();
-              
-                })
-              
-              </script>
-        </html>
+      '<a class="nav-link" href="university.html">' +
+          '<div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>' +
+          'Information' +
+     "</a>";
+     
+  $("#tabs").html(nav);
+
+
+  var main = 
+  '<section id="dashboard">Dashboard </section>' + 
+  '<section id="courses">Courses&Grades </section>' + 
+  '<section id="attendance">Attendance </section>' + 
+  '<section id="info">Information </section>';
+   $("#spapp").html(main);
+
+   /* AJAX REQUEST TO GET ALL STUDENTS FROM DB 
+      append elements
+   */
+
+  $.get('rest/students', function(data){
+          var html = '';
+          for (var i =0; i<data.length; i++){
+                  html += '<<tr>' + 
+                          '<td>' + data[0].firstName+'</td>' + 
+                          '<td>' + data[0].lastName+'</td>' + 
+                          '</tr>';
+
+                          $("#students").html(html);
+                          console.log(data);
+
+          }
+
+  });
+-->
+
+  
+  
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script src="js/JQuerySPApp.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+var app = $.jQuerySPApp({defaultView : "dashboard"});
+
+
+//define routes
+
+app.run();
+
+})
+
+</script>
+</html>

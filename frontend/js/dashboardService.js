@@ -1,7 +1,7 @@
 
 let dashboardService = {
     init: function() {
-
+      
         $.ajax({
             url: "../rest/course",
             type: "GET",

@@ -39,7 +39,7 @@ var CoursesAndGradesService = {
           html += `
             <tbody>
               <tr>
-                <td>${course.name}</td>
+                <td><b>${course.name}</b></td>
               </tr>
               <tr>
                 <td class="card-body">

@@ -16,7 +16,7 @@ require "../vendor/autoload.php"; //means exit from the rest and enter to the ve
 Flight::route('/*', function(){
   // Perform JWT decode
   $path = Flight::request()->url;
-  if ($path == '/loginUser' || $path == '/docs.json' ) return TRUE; // Exclude login route from middleware
+  if ($path == '/loginUser' || $path == '/docs.json' || $path=='/' ) return TRUE; // Exclude login route from middleware
 
   $headers = getallheaders();
   if (!isset($headers['Authorization'])){
@@ -78,7 +78,11 @@ require "dao/UserDao.class.php";
 Flight::register("userDao", "UserDao");
 require_once 'routes/UserRoutes.php';
 
+//route for html
 
+Flight::route('/', function() {
+  require "../login.html";;
+});
 
 
 
