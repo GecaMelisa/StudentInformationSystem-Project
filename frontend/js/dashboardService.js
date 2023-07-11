@@ -1,23 +1,10 @@
-let globalAttendance = {}
 
 let dashboardService = {
-    init: function() {
-
-        /*function getGrade(id){
-            $.ajax(
-                {
-                    url: "../rest/studentgrades/" + id,
-                    type: "GET",
-                    success: function(data){
-                        $(`#course_grade_${id}`).html(data[0]["grade"])
-                    }
-                });
-        }
-        */
-        $.ajax({
+    init: function() { 
+       $.ajax({
             url: "../rest/course",
             type: "GET",
-            beforeSend: function(xhr) {
+            beforeSend: function(xhr) {                  
               xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
             },
             success: function(data) {
