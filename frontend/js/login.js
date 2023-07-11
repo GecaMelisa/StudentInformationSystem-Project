@@ -2,7 +2,7 @@ var UserService = {
   init: function () {
     var token = localStorage.getItem("user_token");
     if (token) {
-      window.location.replace("dashboard");
+      window.location.replace("frontend/index.html");
     }
     $("#login-form").validate({
       submitHandler: function (form) {
@@ -21,7 +21,7 @@ var UserService = {
       success: function (result) {
         console.log(result.token);
         localStorage.setItem("token", result.token);
-        window.location.replace("dashboard");
+        window.location.replace("frontend/index.html");
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         toastr.error(XMLHttpRequest.responseJSON.message);
@@ -31,6 +31,6 @@ var UserService = {
 
   logout: function () {
     localStorage.clear();
-    window.location.replace("login");
+    window.location.replace("../login.html");
   },
 };
