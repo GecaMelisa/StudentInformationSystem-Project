@@ -88,6 +88,30 @@ Flight::route('GET /dashboard', function() {
   require "../frontend/views/dashboard.html";;
 });
 
+Flight::route('GET /courseRegistration', function() {
+  require "../frontend/views/courseRegistration.html";;
+});
+
+Flight::route('GET /courseRegistration', function() {
+  require "../frontend/views/courseRegistration.html";;
+});
+
+Flight::route('GET /coursesandgrades', function() {
+  require "../frontend/views/coursesandgrades.html";;
+});
+
+Flight::route('GET /myCourse', function() {
+  require "../frontend/views/myCourse.html";;
+});
+
+Flight::route('GET /myprofile', function() {
+  require "../frontend/views/myprofile.html";;
+});
+
+Flight::route('GET /university', function() {
+  require "../frontend/views/university.html";;
+});
+
 
 
 
